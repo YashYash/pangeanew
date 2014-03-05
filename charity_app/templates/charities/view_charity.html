@@ -1,0 +1,23 @@
+<html>
+<head><title>Pangea</title></head>
+<body>
+<a href="{% url "home" %}">Home</a>
+<h1>{{ charity.name }}</h1>
+
+Description: {{ charity.description }}
+<br>
+Video: {{ charity.video }}
+<br>
+Image: {{ charity.image }}
+
+{%  for video in charity.videos_set.all %}
+    <li>{{ video.title }}</li>
+{% endfor %}
+<br>
+<a href="{% url "edit_charity" charity.id %}">Edit charity</a>
+<br>
+<a href="{% url "delete_charity" charity.id %}">Delete charity</a>
+<br>
+<a href="{% url "charities" %}">Back to Charities</a>
+</body>
+</html>

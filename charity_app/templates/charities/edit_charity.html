@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pangea</title>
+</head>
+<body>
+<h1>Edit Charity {{ charity.name }}</h1>
+<form method="post">
+    {%  csrf_token %}
+    {{ form1 }}
+    <input type="submit" value="Update Charity"/>
+</form>
+</body>
+</html>

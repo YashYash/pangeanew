@@ -1,0 +1,15 @@
+<html>
+<head><title>Pangea</title></head>
+<body>
+<a href="{% url "home" %}">Home</a>
+<h1>Pangea</h1>
+<h3>Our Charities</h3>
+<ul>
+       {% for charity in charities %}
+        <li><a href="{% url "view_charity" charity.id %}">{{ charity.name }}</a></li>
+       {% endfor %}
+</ul>
+<br>
+<a href="{% url "new_charity" %}">Add New Charity</a>
+</body>
+</html>
