@@ -1,0 +1,17 @@
+<html>
+<head><title>Pangea</title></head>
+<body>
+<a href="{% url "home" %}">Home</a>
+<h1>{{ giver.name }}</h1>
+
+Description: {{ giver.description }}
+<br>
+Image: {{ charity.image }}
+
+<a href="{% url "edit_giver" giver.id %}">Edit Giver</a>
+<br>
+<a href="{% url "delete_giver" giver.id %}">Delete Giver</a>
+<br>
+<a href="{% url "givers" %}">Back to Givers</a>
+</body>
+</html>

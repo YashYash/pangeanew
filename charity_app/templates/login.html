@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<form method="post">
+  {% csrf_token %}
+
+{% for field in form1 %}
+    <p>
+    {{ field.label }}
+    {{ field }}
+    </p>
+{% endfor %}
+
+<input type="submit" value="Log in"/>
+</body>
+</html>

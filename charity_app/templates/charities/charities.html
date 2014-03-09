@@ -1,9 +1,42 @@
-<html>
-<head><title>Pangea</title></head>
+{% extends "home.html" %}
+{% load staticfiles %}
+
+{% block content %}
 <body>
-<a href="{% url "home" %}">Home</a>
+
+<div class="navbar-inverse navbar-fixed-top">
+    	<div class="container">
+        <a href="#" class="navbar-brand">Pangea</a>
+           <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+           </button>
+
+           <div class="collapse navbar-collapse navHeaderCollapse">
+           	<ul class="nav navbar-nav navbar-middle">
+                  <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
+                  <li><a href="{% url "charity_info" %}">Your Profile</a></li>
+                  <li><a href="{% url "view_videos" %}">Micro-Donation Videos</a></li>
+                  <li><a href="{% url "new_video" %}">Add a Video</a></li>
+                  <li><a href="#">About Us</a></li>
+
+                    <ul id="status">
+                	{% if user.is_authenticated %}
+                    <li id="loggedin">Logged in as: {{ user.username }}</li>
+                    <li>(<a href="{% url 'auth_logout' %}">Log out</a></li>
+                    <li><a href="{% url 'auth_password_change' %}">Change password</a>)</li>
+	                {% endif %}
+                    </ul>
+            	</ul>
+            </div>
+        </div>
+
+
+</div>
+<div class="down">
 <h1>Pangea</h1>
-<h3>Our Charities</h3>
+Welcome {{ charities.user }}
 <ul>
        {% for charity in charities %}
         <li><a href="{% url "view_charity" charity.id %}">{{ charity.name }}</a></li>
@@ -11,5 +44,17 @@
 </ul>
 <br>
 <a href="{% url "new_charity" %}">Add New Charity</a>
+</div>
+</div>
 </body>
-</html>
+
+{% endblock %}
+
+
+
+{% block page %}
+<body class="grey">
+
+</body>
+
+{% endblock %}

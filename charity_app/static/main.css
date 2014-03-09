@@ -1,0 +1,108 @@
+{% load staticfiles %}
+
+body, html {
+	height: 100%;
+	margin: 0;
+}
+
+#content {
+	background-attachment: fixed;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	height: 600px;
+	position: relative;
+    text-align: center;
+}
+
+.content {
+	background-attachment: fixed;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	height: 600px;
+	position: relative;
+    text-align: center;
+}
+
+h1 {
+	margin: 0;
+	padding: 20px 0 0 20px;
+	text-align: left;
+	font-weight: normal;
+	font-size: 18px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: rgba(0,0,0,0.5);
+}
+
+#slide-1 {
+	background-image:url("http://d1jqu7g1y74ds1.cloudfront.net/wp-content/uploads/2009/09/SED_wall_1920x1200.jpg");
+	height:800px;
+    z-index: -1;
+}
+
+#slide-2 {
+	background-image:url("http://farm5.staticflickr.com/4008/4304894626_7439bf901e_o.jpg");
+    background-size:cover;
+	height: 1000px;
+    z-index: -1;
+}
+
+#slide-3 {
+	background-image:url("http://www.dream-wallpaper.com/free-wallpaper/photography-wallpaper/childhood-poverty-1-wallpaper/1440x900/free-wallpaper-22.jpg");
+    width:100%;
+	height:800px;
+    z-index: -1;
+}
+
+#slide-4 {
+	background-image: url("http://www.aidforafrica.org/wp-content/uploads/2010/09/Y_GirlClassroom1.JPG");
+	height: 800px;
+    z-index: -1;
+
+}
+
+#slide-5 {
+ background-image:url('http://d1jqu7g1y74ds1.cloudfront.net/wp-content/uploads/2009/09/SED_wall_1920x1200.jpg');
+ height:800px;
+ z-index: -1;
+}
+
+#loggedin{
+    z-index: 200;
+    color:white;
+}
+
+#status{
+    float:right;
+
+}
+
+.navbar-inverse {
+    background-color:#F90307;
+    border-color:#E7E7E7;
+	opacity:0.5;
+    height:150px;
+    font-size:15px;
+
+}
+
+
+.navbar-brand{
+	font-size:30px;
+}
+
+.col-lg-12{
+    padding:0px;
+}
+
+.col-xs-12{
+    padding: 0;
+}
+
+.grey{
+    background-color:grey;
+}
+
+.down{
+    position:relative;
+    top:150px;
+}

@@ -1,0 +1,45 @@
+{% extends "home.html" %}
+
+{% block content %}
+<body>
+
+<div class="navbar-inverse navbar-fixed-top">
+    	<div class="container">
+        <a href="#" class="navbar-brand">Pangea</a>
+           <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+           </button>
+
+           <div class="collapse navbar-collapse navHeaderCollapse">
+           	<ul class="nav navbar-nav navbar-middle">
+                  <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
+                  <li><a href="{% url "giver_profile" %}">Your Profile</a></li>
+                  <li><a href="{% url "view_videos" %}">Micro-Donation Videos</a></li>
+
+
+                  <li><a href="#">About Us</a></li>
+
+                    <ul id="status">
+                	{% if user.is_authenticated %}
+                    <li id="loggedin">Logged in as: {{ user.username }}</li>
+                    <li>(<a href="{% url 'auth_logout' %}">Log out</a></li>
+                    <li><a href="{% url 'auth_password_change' %}">Change password</a>)</li>
+	                {% endif %}
+                    </ul>
+            	</ul>
+            </div>
+        </div>
+
+
+</div>
+<h1 class="down">
+This is {{ user.username }}'s Profile Page
+</h1>
+</body>
+{% endblock %}
+
+{% block page %}
+<body class="grey"></body>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>You have been logged out. </h1>
+{% endblock %}
+
+{% block page %}
+    <h3>
+    Thanks for visiting Pangea
+    </h3>
+<body class="grey">
+<h3><a href="{% url "home" %}">Go back to the Home Page</a></h3>
+</body>
+{% endblock %}

@@ -37,7 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
-    'charity_app'
+    'charity_app',
+    'registration',
+    'giver_app',
+    'jquery'
 
 )
 
@@ -86,4 +89,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
+STATIC_URL  = '/static/'
+
+LOGIN_REDIRECT_URL = "index"
+import smtplib
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+smtp=smtplib.SMTP(host=EMAIL_HOST,port=EMAIL_PORT)
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "yash.saxena1217@gmail.com"
+EMAIL_HOST_PASSWORD = 'FEDERERKOBE123456'
+
+ACCOUNT_ACTIVATION_DAYS=7

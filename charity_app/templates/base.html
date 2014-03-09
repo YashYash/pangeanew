@@ -1,14 +1,83 @@
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="{% static "charity_app.css" %}">
-    <title>Pangea</title>
-</head>
-<body>
-    <h1>Pangea</h1>
-    {% block main %}
+{% load i18n %}
 
-    {% endblock main %}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>{% block title %}User test{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "main.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap-theme.min.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap-theme.css" %}">
+    <script type="text/javascript" src="{% static "jquery/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "bootstrap.js" %}"></script>
+    <script type="text/javascript" src="{% static "bootstrap.min.js" %}"></script>
+</head>
+
+<body>
+<div class="navbar-inverse navbar-fixed-top">
+    	<div class="container">
+        <a href="#" class="navbar-brand">Pangea</a>
+           <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+           </button>
+
+           <div class="collapse navbar-collapse navHeaderCollapse">
+           	<ul class="nav navbar-nav navbar-middle">
+
+                  <li><a href="{% url 'auth_login' %}?next=/charities/home">{% trans "Log in as a Charity" %}</a></li>
+                  <li><a href="{% url 'auth_login' %}?next=/givers">{% trans "Log in as a Giver" %}</a></li>
+                  <li><a href="{% url 'auth_login' %}?next=/givers/new/">{% trans "Log in as a User" %}</a></li>
+                  <li><a href="{% url 'registration_register' %}">{% trans "Not a member - Sign Up Here" %}</a></li>
+
+                  <li><a href="#">About Us</a></li>
+
+                    <ul id="status">
+                	{% if user.is_authenticated %}
+                    <li id="loggedin">Logged in as: {{ user.username }}</li>
+                    <li>(<a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
+                    <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a>)</li>
+	                {% endif %}
+                    </ul>
+            	</ul>
+            </div>
+        </div>
+
+
+</div>
+
+
+    <div id="content" class="col-lg-12">
+        {% block content %}
+<section class="content" id="slide-1" data-stellar-ratio="3">
+<div class="down"><img src="{% static "images/logincharity.png" %}" alt="alternative text" ></div>
+<div class="down"><img src="{{ STATIC_URL }} images/homebuttons/logingiver.png"></div>
+<div class="down"><img src="{{ STATIC_URL }} images/homebuttons/loginuser.jpg"></div>
+</section>
+
+<section class="content" id="slide-2" data-stellar-ratio="2">
+</section>
+
+<section class="content" id="slide-3" data-stellar-ratio="1">
+</section>
+
+<section class="content" id="slide-4" data-stellar-ratio="2">
+</section>
+
+<section class="content" id="slide-5" data-stellar-ratio="1">
+</section>
+        {% endblock %}
+    </div>
+
+    <div id="footer">
+        {% block footer %}
+        {% endblock %}
+    </div>
+
+
 </body>
+
 </html>
