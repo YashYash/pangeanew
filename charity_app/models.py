@@ -6,9 +6,9 @@ class Charity(models.Model):
     name = models.CharField(max_length=200)
     posted = models.DateTimeField(auto_now=True)
     charity_url = models.CharField(max_length=1000)
-    description = models.CharField(max_length=2000)
-    image = models.CharField(max_length=2000)
-    user = models.ForeignKey(User)
+    description = models.CharField(max_length=6000)
+    image = models.ImageField(upload_to="images/charity_logo")
+    user = models.ForeignKey(User, related_name="charity")
 
     def __unicode__(self):
         return self.name

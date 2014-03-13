@@ -1,53 +1,25 @@
 {% extends "home.html" %}
 
-{% block content %}
-<body>
+{% block li %}
 
-<div class="navbar-inverse navbar-fixed-top">
-    	<div class="container">
-        <a href="#" class="navbar-brand">Pangea</a>
-           <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-           </button>
-
-           <div class="collapse navbar-collapse navHeaderCollapse">
-           	<ul class="nav navbar-nav navbar-middle">
                   <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
                   <li><a href="{% url "giver_profile" %}">Your Profile</a></li>
-                  <li><a href="{% url "view_videos" %}">Micro-Donation Videos</a></li>
+                  <li><a href="{% url "stream" %}">Micro-Donation Videos</a></li>
 
-
-                  <li><a href="#">About Us</a></li>
-
-                    <ul id="status">
-                	{% if user.is_authenticated %}
-                    <li id="loggedin">Logged in as: {{ user.username }}</li>
-                    <li>(<a href="{% url 'auth_logout' %}">Log out</a></li>
-                    <li><a href="{% url 'auth_password_change' %}">Change password</a>)</li>
-	                {% endif %}
-                    </ul>
-            	</ul>
-            </div>
-        </div>
-
-
-</div>
+{% endblock %}
+{% block content %}
 
 <div class="down">
 <h1>Pangea</h1>
-<h3>Our Givers</h3>
-<ul>
-       {% for giver in givers %}
-        <li><a href="{% url "view_giver" giver.id %}">{{ giver.name }}</a></li>
-       {% endfor %}
-Your Charities:{{ user.charities.name }}
-</ul>
+
 <br>
+<a href="{% url "new_giver" %}">Add New Charity</a>
+
+<h1 class="down">Giver name:{{ giver.name }}</h1>
+<h1 class="down">Giver Image: {{ giver.image }}</h1>
 <a href="{% url "new_giver" %}">Add New Giver</a>
 </div>
-</body>
+
 
 
 {% endblock %}

@@ -1,0 +1,57 @@
+{% extends "home.html" %}
+
+{% block moresources %}
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_t1QV5ese4yqCTJ8rCK9JgdJk');
+  // ...
+</script>
+{% endblock %}
+{% block content %}
+    <div class="down">
+<form action="" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_t1QV5ese4yqCTJ8rCK9JgdJk"
+    data-amount="2000"
+    data-name="Demo Site"
+    data-description="2 widgets ($20.00)"
+    data-image="/128x128.png">
+  </script>
+</form>
+</div>
+<div class="down">
+  <h1>Charge $10 with Stripe</h1>
+
+  <form action="" method="POST" id="payment-form">
+      {% csrf_token %}
+    <span class="payment-errors"></span>
+
+    <div class="form-row">
+      <label>
+        <span>Card Number</span>
+        <input type="text" size="20" data-stripe="number"/>
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>
+        <span>CVC</span>
+        <input type="text" size="4" data-stripe="cvc"/>
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>
+        <span>Expiration (MM/YYYY)</span>
+        <input type="text" size="2" data-stripe="exp-month"/>
+      </label>
+      <span> / </span>
+      <input type="text" size="4" data-stripe="exp-year"/>
+    </div>
+
+    <button type="submit">Submit Payment</button>
+  </form>
+    </div>
+{% endblock %}

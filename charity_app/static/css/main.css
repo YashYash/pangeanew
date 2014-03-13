@@ -1,0 +1,43 @@
+{% load staticfiles %}
+
+
+
+#loggedin{
+    z-index: 200;
+    color:white;
+}
+
+#status{
+    float:right;
+
+}
+
+.navbar-inverse {
+    background-color:#F90307;
+    border-color:#E7E7E7;
+	opacity:0.5;
+    height:80px;
+    font-size:15px;
+}
+
+
+
+.navbar-brand{
+	font-size:30px;
+}
+
+.back{
+    background-image:url('../images/Nebula-HD-11.jpg');
+    background-position: top left;
+    background-attachment: fixed;
+}
+
+.center{
+    align-content: center;
+    margin:auto;
+}
+
+.down{
+    position:relative;
+    top:150px;
+}

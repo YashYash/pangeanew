@@ -8,9 +8,9 @@ class Giver(models.Model):
     posted = models.DateTimeField(auto_now=True)
     giver_url = models.CharField(max_length=1000)
     description = models.CharField(max_length=2000)
-    image = models.CharField(max_length=100)
-    user = models.ForeignKey(User)
-    charities = models.ForeignKey(Charity)
+    image = models.ImageField(upload_to="images/giver_logo")
+    user = models.ForeignKey(User, related_name="giver")
+    charities = models.ManyToManyField(Charity)
 
 
     def __unicode__(self):

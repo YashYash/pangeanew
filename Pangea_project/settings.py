@@ -40,7 +40,10 @@ INSTALLED_APPS = (
     'charity_app',
     'registration',
     'giver_app',
-    'jquery'
+    'jquery',
+    'bootstrap3',
+    'tastypie',
+    'tastypie_swagger',
 
 )
 
@@ -89,8 +92,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = '/static/'
-STATIC_URL  = '/static/'
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+
+
+VERSION = "1.1.2"
+
+TASTYPIE_SWAGGER_API_MODULE = "Pangea_project.urls.v1_api"
+
+TASTYPIE_FULL_DEBUG = True
 
 LOGIN_REDIRECT_URL = "index"
 import smtplib
@@ -102,3 +113,6 @@ EMAIL_HOST_USER = "yash.saxena1217@gmail.com"
 EMAIL_HOST_PASSWORD = 'FEDERERKOBE123456'
 
 ACCOUNT_ACTIVATION_DAYS=7
+
+
+

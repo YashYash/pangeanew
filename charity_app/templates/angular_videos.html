@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block moresources %}
+    	<script src="{% get_static_prefix %}js/vendor/angular.js"></script>
+		<script src="{% get_static_prefix %}js/vendor/angular-route.js"></script>
+        <script src="{% get_static_prefix %}js/vendor/angular-resource.js"></script>
+
+        <!-- JavaScript Files -->
+		<script src="{% get_static_prefix %}js/app.js"></script>
+        <link rel="stylesheet" href="{% static "css/main.css" %}">
+
+        <!-- Controllers -->
+        <script src="{% get_static_prefix %}js/controllers/videoController.js"></script>
+{% endblock %}
+
+{% block content %}
+ <div class="back">
+    <h1 class="down">Static Shit</h1>
+    <div ng-app="videoApp">
+        <div ng-view></div>
+    </div>
+    <h1 class="down">Also Static shit</h1>
+ </div>
+{% endblock %}
+
+{% block page %}
+<body class="grey">
+</body>
+{% endblock %}

@@ -1,11 +1,17 @@
-
+{% extends "home.html" %}
 {% load i18n %}
 
 {% block content %}
+    <center class="down">
 <form method="post" action=".">
   {% csrf_token %}
   {{ form.as_p }}
 
   <input type="submit" value="{% trans 'Submit' %}" />
 </form>
+</center>
+{% endblock %}
+
+{% block page %}
+    <body class="grey"></body>
 {% endblock %}

@@ -18,6 +18,7 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             user = User.objects.create_user(
+                form.cleaned_data["firstname"],
                 form.cleaned_data["username"],
                 form.cleaned_data["email"],
                 form.cleaned_data["password"],
@@ -60,8 +61,12 @@ def home(request):
     return render(request, "base.html")
 
 def charity_home(request):
-    charities = Charity.objects.all()
-    data = {'charities': charities}
+    charity = request.user.charity.get()
+    print charity.name
+    # charity = Charity.objects.get(user=user_id)
+    # print charity.id
+    # charities = Charity.objects.all()
+    data = {'charity': charity}
     return render(request, "charities/charities.html", data)
 
 def charities(request):
@@ -85,7 +90,7 @@ def new_charity(request):
 
 
 def view_charity(request, charity_id):
-    charity = Charity.objects.get(id= charity_id)
+    charity = Charity.objects.get(id=charity_id)
     data = {"charity": charity}
     return render(request, "charities/view_charity.html", data)
 
@@ -110,7 +115,10 @@ def delete_charity(request, charity_id):
 
 
 def charity_info(request):
-    return render(request, "charities/charity_info.html")
+    charity = request.user.charity.get()
+    print charity.name
+    data = {'charity': charity}
+    return render(request, "charities/charity_info.html", data)
 
 def videos(request):
     videos = Video.objects.all()
@@ -167,3 +175,9 @@ def charity_view_videos(request):
 
 def charity_newsfeed(request):
     return render(request, "newsfeed/newsfeed.html")
+
+def payment(request):
+    return render(request, "payment/register.html")
+
+def angular(request):
+    return render(request, "angular_videos.html")

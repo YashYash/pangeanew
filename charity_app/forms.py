@@ -12,7 +12,7 @@ __author__ = 'yash'
 class UserForm(forms.ModelForm):
     class Meta(object):
         model = User
-        fields = ["username", "email", "password"]
+        fields = ["username", "email", "password", "first_name", "last_name"]
         widgets = {
             "password": forms.PasswordInput
         }

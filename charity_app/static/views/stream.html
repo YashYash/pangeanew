@@ -1,0 +1,26 @@
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=644334955626541";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div ng-repeat="video in videos">
+    <center>
+        <h1 class="down">{{ video.title }}</h1>
+        <iframe width="420" height="345" src="{{ video.trusted_url }}"></iframe>
+        <div class="down">
+        <div class="fb-like" data-href="{{ video.trusted_url }}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+        Charity:{{ video.charity.name }}
+        </div>
+    </center>>
+</div>
+
+
+
+
+
+

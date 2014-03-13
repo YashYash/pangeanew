@@ -1,10 +1,21 @@
+from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from registration.backends.simple.views import RegistrationView
+from tastypie.api import Api
+from charity_app.api.resources import CharityResource, UserResource, VersionResource, CharityfullResource
+from giver_app.api.resources import GiverResource, GiverfullResource
 
 admin.autodiscover()
 
+v1_api = Api(api_name="v1")
+v1_api.register(CharityResource())
+v1_api.register(GiverResource())
+v1_api.register(CharityfullResource())
+v1_api.register(GiverfullResource())
+v1_api.register(UserResource())
+v1_api.register(VersionResource())
 
 
 urlpatterns = patterns('',
@@ -67,5 +78,20 @@ urlpatterns = patterns('',
     url(r'^givers/(?P<giver_id>\w+)/$', 'giver_app.views.view_giver', name='view_giver'),
     url(r'^givers/(?P<giver_id>\w+)/edit/$', 'giver_app.views.edit_giver', name='edit_giver'),
     url(r'^givers/(?P<giver_id>\w+)/delete/$', 'giver_app.views.delete_giver', name='delete_giver'),
+    url(r'^givers/page/$', 'giver_app.views.giver_page', name='giver_page'),
+    url(r'^payment/$', 'charity_app.views.payment', name='payment'),
+    url(r'^api/', include(v1_api.urls)),
+    url(r'^stream_videos/$', 'charity_app.views.angular', name="stream"),
+    url(r'api/lecture/doc/',
+        include('tastypie_swagger.urls', namespace='tastypie_swagger'),
+        kwargs={"tastypie_api_module": "v1_api",
+                "namespace": "charity_app_tastypie_swagger"},
 
+
+    ),
 )
+
+urlpatterns += patterns('',
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve',{
+        'document_root': settings.MEDIA_ROOT}))
+

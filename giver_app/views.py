@@ -52,8 +52,12 @@ def index(request):
     return render(request, 'index.html', data)
 
 def givers(request):
-    givers = Giver.objects.all()
-    data = {'givers': givers}
+    giver = request.user.giver.get()
+    print giver.name
+    # charity = Charity.objects.get(user=user_id)
+    # print charity.id
+    # charities = Charity.objects.all()
+    data = {'giver': giver}
     return render(request, "givers/givers.html", data)
 
 
@@ -101,7 +105,11 @@ def delete_giver(request, giver_id):
 
 
 def giver_profil(request):
-    return render(request, "givers/giver_profile.html")
+    giver = request.user.giver.get()
+    print giver.name
+    data = {'giver': giver}
+    return render(request, "givers/giver_profile.html", data)
 
 
-
+def giver_page(request):
+    return render(request, "givervideos/all_videos_giver.html")

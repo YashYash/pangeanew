@@ -1,60 +1,44 @@
 {% extends "home.html" %}
 {% load staticfiles %}
 
-{% block content %}
-<body>
-
-<div class="navbar-inverse navbar-fixed-top">
-    	<div class="container">
-        <a href="#" class="navbar-brand">Pangea</a>
-           <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-           </button>
-
-           <div class="collapse navbar-collapse navHeaderCollapse">
-           	<ul class="nav navbar-nav navbar-middle">
+    {% block li %}
                   <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
                   <li><a href="{% url "charity_info" %}">Your Profile</a></li>
-                  <li><a href="{% url "view_videos" %}">Micro-Donation Videos</a></li>
+                  <li><a href="{% url "stream" %}">Micro-Donation Videos</a></li>
                   <li><a href="{% url "new_video" %}">Add a Video</a></li>
                   <li><a href="#">About Us</a></li>
+    {% endblock %}
 
-                    <ul id="status">
-                	{% if user.is_authenticated %}
-                    <li id="loggedin">Logged in as: {{ user.username }}</li>
-                    <li>(<a href="{% url 'auth_logout' %}">Log out</a></li>
-                    <li><a href="{% url 'auth_password_change' %}">Change password</a>)</li>
-	                {% endif %}
-                    </ul>
-            	</ul>
-            </div>
-        </div>
+{% block content %}
 
-
-</div>
 <div class="down">
 <h1>Pangea</h1>
-Welcome {{ charities.user }}
-<ul>
-       {% for charity in charities %}
-        <li><a href="{% url "view_charity" charity.id %}">{{ charity.name }}</a></li>
-       {% endfor %}
-</ul>
+
 <br>
 <a href="{% url "new_charity" %}">Add New Charity</a>
 </div>
-</div>
-</body>
-
+<h1 class="down">Your Charity:{{ charity.name }}</h1>
+<h1 class="down">Charity Image: {{ charity.image }}</h1>
 {% endblock %}
 
 
 
 {% block page %}
 <body class="grey">
-
+<div class="down">
+    <form action="" method="POST">
+             {% csrf_token %}
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_t1QV5ese4yqCTJ8rCK9JgdJk"
+    data-amount="10"
+    data-name="Pangea"
+    data-description="Pangea ($0.10)"
+    data-image="/128x128.png">
+  </script>
+</form>
+<a href="{% url "payment" %}">Sign Up Your Credit Card</a>
+</div>
 </body>
 
 {% endblock %}
