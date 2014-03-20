@@ -1,5 +1,5 @@
 from django.contrib import admin
-from charity_app.models import Charity, Video
+from charity_app.models import Charity, Video, ClickCount
 
 
 class CharityAdmin(admin.ModelAdmin):
@@ -13,5 +13,8 @@ class VideoAdmin(admin.ModelAdmin):
 
 
 
+
+
 admin.site.register(Charity, CharityAdmin)
 admin.site.register(Video, VideoAdmin)
+admin.site.register(ClickCount)

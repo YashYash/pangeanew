@@ -17,3 +17,18 @@
 <input type="submit" value="Log in"/>
 </body>
 </html>
+
+<div class="down">
+    <form action="" method="POST">
+             {% csrf_token %}
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_t1QV5ese4yqCTJ8rCK9JgdJk"
+    data-amount="10"
+    data-name="Pangea"
+    data-description="Pangea ($0.10)"
+    data-image="/128x128.png">
+  </script>
+</form>
+<a href="{% url "payment" %}">Sign Up Your Credit Card</a>
+</div>

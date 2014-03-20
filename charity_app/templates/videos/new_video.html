@@ -1,13 +1,6 @@
-{% extends "home.html" %}
+{% extends "nonav.html" %}
 
-{% block li %}
 
-                  <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
-                  <li><a href="{% url "charity_info" %}">Your Profile</a></li>
-                  <li><a href="{% url "view_videos" %}">Micro-Donation Videos</a></li>
-                  <li><a href="{% url "new_video" %}">Add a Video</a></li>
-                  <li><a href="#">About Us</a></li>
-{% endblock %}
 {% block content %}
 
 <div class="down">
@@ -18,7 +11,7 @@
     <input type="submit" value="Add a Video"/>
 </form>
 
-<a href="{% url "charities" %}">Home</a>
+<a href="{% url "charities" %}">Back</a>
 </div>
 
 {% endblock %}

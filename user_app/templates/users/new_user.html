@@ -1,0 +1,10 @@
+{% extends "nonav.html" %}
+{% block content %}
+<h1>Add a User</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add my User"/>
+</form>
+
+{% endblock %}

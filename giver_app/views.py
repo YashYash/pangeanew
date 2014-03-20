@@ -50,17 +50,13 @@ def login1(request):
 def index(request):
     data = {}
     return render(request, 'index.html', data)
-
+@login_required
 def givers(request):
-    giver = request.user.giver.get()
-    print giver.name
-    # charity = Charity.objects.get(user=user_id)
-    # print charity.id
-    # charities = Charity.objects.all()
-    data = {'giver': giver}
+    activeuser = request.user.activeuser
+    data = {'activeuser': activeuser}
     return render(request, "givers/givers.html", data)
 
-
+@login_required
 def new_giver(request):
     if request.method == "POST":
         form3 = GiverForm(request.POST)
@@ -74,13 +70,13 @@ def new_giver(request):
     data = {'form3': form3}
     return render(request, "givers/new_giver.html", data)
 
-
+@login_required
 def view_giver(request, giver_id):
     giver = Giver.objects.get(id= giver_id)
     data = {"giver": giver}
     return render(request, "givers/view_giver.html", data)
 
-
+@login_required
 def edit_giver(request, giver_id):
     giver = Giver.objects.get(id= giver_id)
     print giver
@@ -89,7 +85,7 @@ def edit_giver(request, giver_id):
         print "POST"
         if form3.is_valid():
             if form3.save():
-                return redirect("/givers/{}".format(giver_id))
+                return redirect("givers")
     else:
         form3 = GiverForm(instance= giver)
 
@@ -97,19 +93,27 @@ def edit_giver(request, giver_id):
     print form3
     return render(request, "givers/edit_giver.html", data)
 
-
+@login_required
 def delete_giver(request, giver_id):
     giver = Giver.objects.get(id= giver_id)
     giver.delete()
     return redirect("/givers")
 
-
+@login_required
 def giver_profil(request):
-    giver = request.user.giver.get()
+    giver = request.user.giver
     print giver.name
     data = {'giver': giver}
     return render(request, "givers/giver_profile.html", data)
 
-
+@login_required
 def giver_page(request):
     return render(request, "givervideos/all_videos_giver.html")
+@login_required
+def giver_info(request):
+    giver = request.user.giver
+    print giver.name
+    activeuser = request.user.activeuser
+    data = {'giver': giver, 'activeuser': activeuser}
+    print activeuser.name
+    return render(request, "givers/giver_info.html", data)

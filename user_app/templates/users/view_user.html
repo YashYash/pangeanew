@@ -1,0 +1,20 @@
+{% extends "nonav.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<img src="{{ user.profile_pic.url }}" height="100%" width="100%">
+
+
+
+
+
+
+
+<a href="{% url "edit_charity" charity.id %}">Edit charity</a>
+<br>
+<a href="{% url "delete_charity" charity.id %}">Delete charity</a>
+<br>
+<a href="{% url "charities" %}">Back to Charities</a>
+{% endblock %}

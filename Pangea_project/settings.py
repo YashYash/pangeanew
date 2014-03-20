@@ -36,10 +36,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
     'south',
     'charity_app',
     'registration',
     'giver_app',
+    'user_app',
     'jquery',
     'bootstrap3',
     'tastypie',
@@ -55,6 +57,16 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1453223734911171'
+SOCIAL_AUTH_FACEBOOK_SECRET = '1ab32cf8ca7d7fcb6f5f8c92538941e1'
+
 
 ROOT_URLCONF = 'Pangea_project.urls'
 
@@ -103,7 +115,10 @@ TASTYPIE_SWAGGER_API_MODULE = "Pangea_project.urls.v1_api"
 
 TASTYPIE_FULL_DEBUG = True
 
-LOGIN_REDIRECT_URL = "index"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'users'
+LOGIN_REDIRECT_URL = "users"
+LOGIN_URL = 'auth_login'
+
 import smtplib
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -113,6 +128,14 @@ EMAIL_HOST_USER = "yash.saxena1217@gmail.com"
 EMAIL_HOST_PASSWORD = 'FEDERERKOBE123456'
 
 ACCOUNT_ACTIVATION_DAYS=7
+
+AUTHENTICATION_BACKENDS = (
+      'social.backends.facebook.FacebookOAuth2',
+      'django.contrib.auth.backends.ModelBackend',
+)
+
+
+FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'popup'}
 
 
 

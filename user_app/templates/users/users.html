@@ -1,0 +1,37 @@
+{% extends "profilepages.html" %}
+{% load staticfiles %}
+
+
+{% block leftli %}
+                  <li><a href="{% url "stream" %}">M D Videos</a></li>
+                  <li><a href="{% url "givers" %}">News Feed</a></li>
+{% endblock %}
+
+{% block content %}
+<body id="users">
+<div id="wrapper" class="animated fadeInRightBig1 down">
+    <center><img src="{% static url %}images/circ.png"></center>
+    <section>
+        <div id="btn-container1">
+            <a href="{% url 'users_home' %}"><input type="submit" value="User Account" id="button-blue"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+
+        <section>
+        <div id="btn-container2">
+            <a href="{% url 'charities' %}"><input type="submit" value="Charity Account" id="button-red"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+    <section>
+        <div id="btn-container3">
+            <a href= "{% url "givers" %}"><input type="submit" value="Giver Account" id="button-green"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+  </div>
+</body>
+
+<!-- wrapper -->
+{% endblock %}

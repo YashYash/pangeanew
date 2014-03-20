@@ -1,0 +1,49 @@
+{% extends "adsandprofiles.html" %}
+{% load staticfiles %}
+{% block moreresources %}
+<
+{% endblock %}
+{% block leftli %}
+                  <li><a href="{% url "users" %}">Accounts</a></li>
+                  <li><a href="{% url "stream" %}">M D Videos</a></li>
+                  <li><a href="{% url "givers" %}">News Feed</a></li>
+{% endblock %}
+
+{% block content %}
+
+<img class="background" src="{{ giver.background_image.url }}" height="300px" width="300px">
+
+<center>
+<img class="profileback" src="{{ giver.cover_photo.url }}">
+<h2 class="charityslogan">{{ giver.slogan }}</h2>
+
+<a href="{{ giver.giver_url }}"><img class="animated fadeInRightBig1 giverimage" src="{{ giver.image.url }}" height="300px" width="300px"></a>
+ </center>
+<center>
+<div id="container1">
+
+<h1 class="charityname">{{ giver.name }}</h1>
+ <article>
+<p class="charitydescription">{{ giver.description }}</p>
+
+ <iframe id="givervideo" width="440" height="290" src="{{ giver.video_url }}"></iframe><br>
+
+ </article>
+<br>
+<div>
+<a href="{{ giver.giver_url }}"><img class="visit" src="{% static url %}images/vistsite.png"></a>
+
+</div>
+</div>
+
+<div class="edit">
+    <a href="{% url "edit_giver" giver.id %}">Edit</a>
+    <br>
+    <a href="{% url "delete_giver" giver.id %}">Delete</a>
+    <br>
+</div>
+
+</center>
+</div>
+
+{% endblock %}

@@ -1,14 +1,18 @@
-{% extends "home.html" %}
+{% extends "logintemp.html" %}
+{% load staticfiles %}
 {% load i18n %}
 
 {% block content %}
-    <center class="down">
+ <center>
+ <div class="animated fadeInRightBig1 down2">
+ <img src="{% static url %}images/circ.png">
 <form method="post" action=".">
   {% csrf_token %}
   {{ form.as_p }}
 
-  <input type="submit" value="{% trans 'Submit' %}" />
+<input id="register" type="submit" value="{% trans 'Submit' %}" />
 </form>
+ </div>
 </center>
 {% endblock %}
 

@@ -1,44 +1,50 @@
-{% extends "home.html" %}
+{% extends "profilepages.html" %}
 {% load staticfiles %}
 
-    {% block li %}
-                  <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
-                  <li><a href="{% url "charity_info" %}">Your Profile</a></li>
-                  <li><a href="{% url "stream" %}">Micro-Donation Videos</a></li>
-                  <li><a href="{% url "new_video" %}">Add a Video</a></li>
-                  <li><a href="#">About Us</a></li>
-    {% endblock %}
+{% block moreresources %}
 
-{% block content %}
+    <link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
 
-<div class="down">
-<h1>Pangea</h1>
-
-<br>
-<a href="{% url "new_charity" %}">Add New Charity</a>
-</div>
-<h1 class="down">Your Charity:{{ charity.name }}</h1>
-<h1 class="down">Charity Image: {{ charity.image }}</h1>
 {% endblock %}
 
+{% block leftli %}
+
+      <li><a href="{% url "users" %}">Accounts</a></li>
+      <li><a href="{% url "stream" %}">M D Videos</a></li>
+      <li><a href="{% url "stream" %}">Newsfeed</a></li>
 
 
-{% block page %}
-<body class="grey">
-<div class="down">
-    <form action="" method="POST">
-             {% csrf_token %}
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_t1QV5ese4yqCTJ8rCK9JgdJk"
-    data-amount="10"
-    data-name="Pangea"
-    data-description="Pangea ($0.10)"
-    data-image="/128x128.png">
-  </script>
-</form>
-<a href="{% url "payment" %}">Sign Up Your Credit Card</a>
-</div>
+{% endblock %}
+
+{% block content %}
+<body id="charities">
+    <div id="wrapper" class="animated fadeInRightBig1 down4">
+    <center><img src="{% static url %}images/circ.png"></center>
+         <section>
+            <div id="btn-container2">
+                <a href="{% url 'new_charity' %}"><input type="submit" value="Add a Charity (if yout haven't yet)" id="button-red"/></a>
+                <div class="ease"></div>
+            </div>
+        </section>
+
+
+        <section>
+            <div id="btn-container2">
+                <a href="{% url 'new_video' %}"><input type="submit" value="Add a Video" id="button-red"/></a>
+                <div class="ease"></div>
+            </div>
+        </section>
+
+
+        <section>
+            <div id="btn-container2">
+                <a href= "{% url 'charity_info' %}" ><input type="submit" value="View Profile" id="button-red"/></a>
+                <div class="ease"></div>
+            </div>
+        </section>
+
+
+
+    </div><!-- wrapper -->
 </body>
-
 {% endblock %}

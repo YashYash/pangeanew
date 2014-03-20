@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pangea</title>
+</head>
+<body>
+<h1>Edit User {{ user.name }}</h1>
+<form method="post">
+    {%  csrf_token %}
+    {{ form }}
+    <input type="submit" value="Update user"/>
+</form>
+</body>
+</html>

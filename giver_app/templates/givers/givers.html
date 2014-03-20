@@ -1,32 +1,42 @@
-{% extends "home.html" %}
-
-{% block li %}
-
-                  <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
-                  <li><a href="{% url "giver_profile" %}">Your Profile</a></li>
-                  <li><a href="{% url "stream" %}">Micro-Donation Videos</a></li>
+{% extends "profilepages.html" %}
+{% load staticfiles %}
+{% block moreresources %}
+<link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
+{% endblock %}
+{% block leftli %}
+                  <li><a href="{% url "users" %}">Accounts</a></li>
+                  <li><a href="{% url "stream" %}">M D Videos</a></li>
+                  <li><a href="{% url "stream" %}">Newsfeed</a></li>
 
 {% endblock %}
 {% block content %}
+    <body id="givers">
+<div id="wrapper" class="animated fadeInRightBig1 down">
 
-<div class="down">
-<h1>Pangea</h1>
+    <center><img src="{% static url %}images/circ.png"></center>
 
-<br>
-<a href="{% url "new_giver" %}">Add New Charity</a>
+    <section>
 
-<h1 class="down">Giver name:{{ giver.name }}</h1>
-<h1 class="down">Giver Image: {{ giver.image }}</h1>
-<a href="{% url "new_giver" %}">Add New Giver</a>
-</div>
+            <div id="btn-container2">
+                <a href="{% url 'new_giver' %}"><input type="submit" value="Add Profile" id="button-green"/></a>
+                <div class="ease"></div>
+            </div>
+</section>
+    <section>
+        <div id="btn-container1">
+            <a href="#"><input type="submit" value="Analytics" id="button-green"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+
+        <section>
+        <div id="btn-container2">
+            <a href= "{% url 'giver_info' %}"><input type="submit" value="View Profile" id="button-green"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
 
 
-
-{% endblock %}
-
-{% block page %}
-<body class="grey">
-
+</div><!-- wrapper -->
 </body>
-
 {% endblock %}

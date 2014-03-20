@@ -7,24 +7,20 @@
     color:white;
 }
 
-#status{
-    float:right;
 
-}
 
-.navbar-inverse {
-    background-color:#F90307;
-    border-color:#E7E7E7;
-	opacity:0.5;
-    height:80px;
-    font-size:15px;
-}
+/*.navbar-inverse {*/
+    /*background-color:#F90307;*/
+    /*border-color:#E7E7E7;*/
+    /*height:80px;*/
+    /*font-size:15px;*/
+/*}*/
 
 
 
-.navbar-brand{
-	font-size:30px;
-}
+/*.navbar-brand{*/
+	/*font-size:30px;*/
+/*}*/
 
 .back{
     background-image:url('../images/Nebula-HD-11.jpg');
@@ -40,4 +36,32 @@
 .down{
     position:relative;
     top:150px;
+
 }
+
+h1{
+    color:white;
+}
+
+h3{
+    color:white;
+}
+
+#vids{
+    padding-bottom:30px;
+}
+
+.container{
+    text-align: center;
+    align-content: center;
+}
+
+#search{
+    position:relative;
+    right:650px;
+    top:60px;
+}
+
+
+
+

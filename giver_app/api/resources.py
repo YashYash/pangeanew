@@ -16,8 +16,6 @@ from giver_app.models import Giver
 class GiverResource(ModelResource):
     class Meta:
         queryset = Giver.objects.all()
-        authentication = BasicAuthentication()
-        authorization = UserObjectsOnlyAuthorization()
         resource_name = "giver"
         allowed_methods = ['get', 'post']
 

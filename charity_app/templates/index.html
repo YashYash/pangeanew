@@ -1,4 +1,92 @@
-{% extends 'base.html' %}
-{% block content %}
-Index Page
+{% load i18n %}
+{% load staticfiles %}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>{% block title %}User test{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/homepage.css" %}">
+    <script type="text/javascript" src="{% static "jquery/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/grid.js" %}"></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
+    {% block moresources %}{% endblock %}
+</head>
+
+
+
+
+<link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
+
+<div id="quemsomos" class="bgParallax" data-speed="2">
+
+         <article>
+             <div id="logo" class="clicks">
+
+                <img src="{% static url %}images/pange2.png">
+                    <div id="slogan">We help you help others</div>
+                <ul class="inpage">
+
+                    <li><a class="frontpage" href="#">Our Work</a></li>
+                    <li><a class="frontpage" href="#">About us</a></li>
+                    <li><a class="frontpage" href="#">The Founder</a></li>
+                </ul>
+
+            </div>
+
+         </article>
+</div>
+
+<div id="missao" class="bgParallax" data-speed="1">
+<article>
+</article>
+</div>
+
+<div id="container1">
+
+	<div class="menu-trigger"></div>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="{% url 'auth_login' %}?next=/users/">Log in  </a></li>
+
+            </ul>
+
+            <ul>
+                <li><a href="{% url 'registration_register' %}">  Register</a></li>
+            </ul>
+        </nav>
+
+</div>
+
+	<script>
+		window.onscroll=function(){document.getElementById('navbar').setAttribute('class', (window.pageYOffset>5?'fixednav clearfix':'clearfix'));}
+	</script>
+
+    <script>
+        (function() {
+            var $body = document.body
+            , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
+
+            if ( typeof $menu_trigger !== 'undefined' ) {
+                $menu_trigger.addEventListener('click', function() {
+                    $body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
+                });
+            }
+
+        }).call(this);
+
+    </script>
+
+
+<div id="quemsomos" class="bgParallax" data-speed="2">
+
+</div>
+
+
+
+
+
+{% block page %}
 {% endblock %}
+
+</html>

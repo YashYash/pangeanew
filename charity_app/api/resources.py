@@ -3,26 +3,27 @@ from django.contrib.auth.models import User
 from tastypie.authentication import BasicAuthentication
 from tastypie.authorization import Authorization
 from tastypie.bundle import Bundle
-from tastypie.fields import CharField, ToOneField
+from tastypie.fields import CharField, ToOneField, ToManyField
 from tastypie.resources import ModelResource, Resource
 from charity_app.api.authorization import UserObjectsOnlyAuthorization
-from charity_app.models import Charity, Video
+from charity_app.models import Charity, Video, ClickCount
 
 
 class CharityResource(ModelResource):
+    givers = ToManyField('giver_app.api.resources.GiverResource', 'givers', full=True)
+
     class Meta:
         queryset = Charity.objects.all()
         authentication = BasicAuthentication()
         authorization = UserObjectsOnlyAuthorization()
         resource_name = "charity"
+        allowed_methods = ['get', 'post']
 
-class CharityfullResource(ModelResource):
-    charity = ToOneField(CharityResource, 'charity', full=True)
+class VideoResource(ModelResource):
 
     class Meta:
         queryset = Video.objects.all()
-        resource_name = "charity_full"
-        authorization = Authorization()
+        resource_name = "charity"
 
 
 class UserResource(ModelResource):
@@ -32,6 +33,30 @@ class UserResource(ModelResource):
         resource_name = 'user'
         authorization = UserObjectsOnlyAuthorization()
         authentication = BasicAuthentication()
+
+
+class ClickCountResource(ModelResource):
+    video = ToOneField(VideoResource, 'video', full=True)
+    user = ToOneField(UserResource, 'user', full=True)
+
+    class Meta:
+        queryset = ClickCount.objects.all()
+        resource_name = "click_count"
+        authorization = Authorization()
+        allowed_methods = ['get', 'post']
+
+
+class CharityfullResource(ModelResource):
+    charity = ToOneField(CharityResource, 'charity', full=True)
+    click_count = ToOneField(ClickCountResource, "click_count", full=True, null=True)
+
+    class Meta:
+        queryset = Video.objects.all()
+        resource_name = "charity_full"
+        authorization = Authorization()
+        allowed_methods = ['get', 'post']
+
+
 
 
 ######################

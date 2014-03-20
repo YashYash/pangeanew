@@ -1,0 +1,339 @@
+@import url(http://fonts.googleapis.com/css?family=Crushed|Sail|Montez|Merienda+One|Radley|Italianno|Rancho|Damion|Leckerli+One|Uncial+Antiqua|Amarante);
+
+/** For index.html, the landing page **/
+
+* {margin:0; padding: 0;}
+html, body {height:100%;
+font-size: 14px;}
+
+/** formata elementos que tem backgrounds parallax **/
+.bgParallax {
+font-family: 'Sail', cursive;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1920px;/*1920px*/
+	position: relative;
+	min-height: 100%;
+	text-shadow:0 0 10px rgba(0,0,0,0.7);
+
+	background-position: 50% 0;
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+
+/* Define backgrounds dos divs */
+#quemsomos {
+  background-image:url('../images/hands.png');
+    height:100%;
+font-family: 'Sail', cursive;
+}
+#missao {
+	background-image:url('../images/kids.jpg');
+
+
+	-webkit-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
+	-moz-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
+	-ms-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
+	-o-box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
+	box-shadow:-20px 0 20px 5px rgba(0,0,0,0.7);
+}
+
+/** Formata o article que vai o texto **/
+.bgParallax article {
+  width: 70%;
+  text-align: center;
+  height:100%;
+
+  margin:0 auto;
+  padding:5% 0 0;
+
+}
+
+
+
+/** formata texto **/
+article h1 {
+  font-size:40px;
+}
+article p {
+  line-height: 30px;
+  font-size:20px;
+  margin-top:40px
+
+}
+article p a {
+  color:#FFF;
+  text-decoration:none;
+  font-size:25px;
+}
+
+body {
+	font-size: 16px;
+	line-height: 1.4;
+	margin: 0;
+font-family: 'Sail', cursive;
+}
+
+.clearfix:before,.clearfix:after {content: " "; display: table;}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;}
+
+#container {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 70%;
+	margin: auto;
+	color: #ffffff;
+	padding: 55px 1%;
+    text-align: center;
+
+}
+
+
+
+#container h1 {font-size: 1.8em;}
+#container h2 {font-size: 1.35em;}
+
+#navbar {
+	width: 70%; /* Should be same width as content container */
+	position: fixed;
+	top: 0;	left: 15%; /* Left is 100-[content width]/2). */
+	opacity: 1;
+	z-index: 100;
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+
+}
+
+nav ul {
+font-family: 'Sail', cursive;
+	font-size:22px;
+	list-style-type: none;
+	background-color:none;
+	opacity:1;
+	width: 50%;
+	margin: 0;
+	padding: 10px 0;
+	color: #F1F1F1;
+    border-radius:20px;
+}
+
+nav ul:nth-of-type(1) {float: left;}
+nav ul:nth-of-type(2) {float: right;}
+
+nav ul li {
+	float: left;
+	margin: 0;
+	padding: 30px;
+}
+nav ul:nth-of-type(2) li {float: right;}
+
+nav ul li a {
+	text-decoration: none;
+color: #fff;
+    font-size: 40px;
+}
+
+nav ul li a:hover {text-shadow: 0 0 10px #fff;}
+
+
+.fixednav {
+	left: 0 !important;
+	width: 100% !important;
+	opacity: .9 !important;
+}
+
+.filler {font-size: .8em;}
+
+.fixednav ul {
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+	width: 15% !important;
+	text-align: center;
+}
+.fixednav ul li {display: block; float: none;}
+.fixednav ul:nth-of-type(2) li {float: none;}
+
+
+@media only screen and (max-width: 800px) {
+	body {font-size: 15px;}
+
+	#container {
+		width: 80%;
+		position: absolute;
+		left: 20%;
+		padding: 1%;
+	}
+
+	#navbar {
+		width: 30%;
+		position: fixed;
+		top: 0; left: 0;
+		opacity: 1;
+		-webkit-transition: none;
+		transition: none;
+	}
+
+	nav ul {width: 100%; padding: 0;}
+	nav ul:nth-of-type(2) {float: left;}
+	nav ul li, nav ul:nth-of-type(2) li {float: none;}
+
+	nav#navbar ul a {display: block;}
+
+	.fixednav {
+		left: 0 !important;
+		width: 20% !important;
+		opacity: 1 !important;
+	}
+
+	.fixednav ul {
+		-webkit-transition: none;
+		transition: none;
+		width: 100% !important;
+		text-align: left;
+
+	}
+	#logo{
+		position:relative;
+		right:80px;
+	}
+	.clicks{
+		position:absolute;
+		left:100px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+
+	nav#navbar {
+		top: 55px;
+		left: -150px;
+		width: 150px;
+		-webkit-transition: all 300ms;
+		transition: all 300ms;
+		opacity: 0.92;
+	}
+
+	nav#navbar ul {
+		-webkit-transition: all 300ms;
+		transition: all 300ms;
+	}
+
+	body.menu-active nav#navbar {left: 0px;}
+	body.menu-active nav#navbar ul {left: 0px;}
+
+	#container {
+		position: fixed;
+		top: 0; left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 0 1% 1% 43px;
+		overflow: scroll;
+	}
+
+	div.menu-trigger {
+		position: fixed;
+		top: 7px; left: 7px;
+		width: 32px; height: 32px;
+		background: #9C413F;
+		cursor: pointer;
+		border-radius: 5px;
+		-webkit-transition: all 300ms;
+		transition: all 300ms;
+		z-index: 999;
+		opacity: 0.8;
+	}
+
+	div.menu-trigger:before {
+		content: 'P';
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+		font-size: 1.2em;
+		text-align: center;
+		text-transform: none;
+		line-height: 32px;
+		color: #fff;
+	}
+}
+
+
+#logo{
+
+}
+.clicks{
+	position:relative;
+	left:15px;
+
+
+}
+
+.clicks ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.clicks ul li { display: inline;
+padding:25px;
+
+}
+
+a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+a:hover {font-weight: bold;}
+
+.frontpage{
+    font-size: 25px;
+}
+
+.frontpage:hover {text-shadow: 0 0 10px #fff;}
+#status{
+    font-size: 10px;
+}
+
+/* Reset Styles */
+*{
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+font-family: 'Damion', cursive;
+    font-size: 27px;
+}
+
+
+#wrapper{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* Floats button in the middle */
+section{
+	margin: 50px 0;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.container{
+    text-align: center;
+    align-content: center;
+}
+
+#slogan{
+    font-size:20px;
+    color:white;
+    position: relative;
+    bottom:60px;
+}
+
+#inpage{
+    position:relative;
+    bottom:60px;
+}

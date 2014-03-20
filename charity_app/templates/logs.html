@@ -1,0 +1,37 @@
+{% load staticfiles %}
+   <head>
+    <link rel="stylesheet" href="{% static "css/grid.css" %}">
+    </head>
+All logins
+<ul>
+                  <li><a href="{% url 'auth_login' %}?next=/charities/info">Log in as a Charity</a></li>
+                  <li><a href="{% url 'auth_login' %}?next=/givers">Log in as a Giver</a></li>
+                  <li><a href="{% url 'auth_login' %}?next=/givers/new/">Log in as a User</a></li>
+</ul>
+<link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
+
+<div id="wrapper">
+
+    <section>
+        <div id="btn-container1">
+            <a href="{% url 'auth_login' %}?next=/users/home"><input type="submit" value="Sign in as User" id="button-blue"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+
+        <section>
+        <div id="btn-container2">
+            <a href="{% url 'auth_login' %}?next=/charities/info"><input type="submit" value="Sign in as a Charity" id="button-red"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+
+            <section>
+        <div id="btn-container3">
+            <a href="{% url 'auth_login' %}?next=/givers"><input type="submit" value="Sign in as a Giver" id="button-green"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+</div><!-- wrapper -->
+
+

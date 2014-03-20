@@ -1,23 +1,34 @@
-<html>
-<head><title>Pangea</title></head>
-<body>
-<a href="{% url "home" %}">Home</a>
-<h1>{{ charity.name }}</h1>
+{% extends "nonav.html" %}
+{% load staticfiles %}
+{% block content %}
 
-Description: {{ charity.description }}
-<br>
-Video: {{ charity.video }}
-<br>
-Image: {{ charity.image }}
 
-{%  for video in charity.videos_set.all %}
-    <li>{{ video.title }}</li>
-{% endfor %}
-<br>
-<a href="{% url "edit_charity" charity.id %}">Edit charity</a>
-<br>
-<a href="{% url "delete_charity" charity.id %}">Delete charity</a>
-<br>
-<a href="{% url "charities" %}">Back to Charities</a>
-</body>
-</html>
+    <img class="profileback" src="{{ charity.cover_photo.url }}" height="100%" width="100%">
+
+
+    <div id="container1">
+
+    <h1 class="charityname">{{ charity.name }}</h1>
+    <h2 class="charityslogan">{{ charity.slogan }}</h2>
+    <img class="charityimage" src="{{ charity.image.url }}" height="300px" width="500px">
+    <article>
+    <p class="charitydescription">{{ charity.description }}</p>
+    </article>
+    <br>
+    <div>
+    {{ charity.video }}
+    </div>
+    <div>
+        <a href="{{ charity.charity_url }}"><img class="visit" src="{% static url %}images/vistsite.png"></a>
+
+    </div>
+    </div>
+    <br>
+
+    <br>
+    <a href="{% url "edit_charity" charity.id %}">Edit charity</a>
+    <br>
+    <a href="{% url "delete_charity" charity.id %}">Delete charity</a>
+    <br>
+    <a href="{% url "charities" %}">Back to Charities</a>
+{% endblock %}

@@ -1,12 +1,11 @@
-<html>
-<head><title>Pangea</title></head>
-<body>
+{% extends "nonav.html" %}
+{% block content %}
 <h1>Add a Charity</h1>
 <form method="post">
     {% csrf_token %}
     {{ form0 }}
-    <input type="submit" value="Add a new charity"/>
+    <input type="submit" value="Add my Charity"/>
 </form>
 <a href="{% url "new_video" %}">Add a video</a>
-</body>
-</html>
+
+{% endblock %}

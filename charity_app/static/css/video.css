@@ -1,0 +1,39 @@
+@import url(http://fonts.googleapis.com/css?family=News+Cycle|Poiret+One|Sail|Kite+One|Carrois+Gothic+SC);
+
+
+h1{
+    color:white;
+}
+
+h3{
+    color:white;
+}
+
+a{
+    font-size:30px;
+}
+
+a:hover {text-shadow: 0 0 10px #fff;}
+
+.vids{
+    padding-bottom: 40px;
+}
+
+#search {
+    outline: 0;
+    border: 0;
+    background: transparent;
+    border-bottom: 3px solid white;
+
+font-family: 'News Cycle', sans-serif;
+    font-size: 40px;
+    color:white;
+position: relative;
+    bottom:80px;
+    text-align: center;
+}
+
+.don{
+    position: relative;
+    top:100px;
+}

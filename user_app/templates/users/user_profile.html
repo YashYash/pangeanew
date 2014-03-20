@@ -1,0 +1,18 @@
+{% extends "profilepages.html" %}
+{% load staticfiles %}
+
+
+{% block leftli %}
+                  <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
+                  <li><a href="{% url "stream" %}">Micro-Donation Videos</a></li>
+{% endblock %}
+
+{% block content %}
+<div id="container1">
+<h3>Welcome {{ user.username }}</h3>
+<h1>{{ activeuser.name }}</h1>
+<img src="{{ activeuser.profile_pic.url }}">
+</div>
+
+
+{% endblock %}
