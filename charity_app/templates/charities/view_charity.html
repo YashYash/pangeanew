@@ -1,34 +1,38 @@
-{% extends "nonav.html" %}
+{% extends "adsandprofiles.html" %}
 {% load staticfiles %}
+
+{% block leftli %}
+                  <li><a href="{% url "users" %}">Accounts</a></li>
+                  <li><a href="{% url "stream" %}">M D Videos</a></li>
+                  <li><a href="{% url "givers" %}">News Feed</a></li>
+{% endblock %}
+
 {% block content %}
 
+    <img class="background" src="{{ charity.background_image.url }}" height="300px" width="300px">
+<center>
+<img class="profileback" src="{{ charity.cover_photo.url }}">
+<h2 class="charityslogan">{{ charity.slogan }}</h2>
 
-    <img class="profileback" src="{{ charity.cover_photo.url }}" height="100%" width="100%">
+<a href="{{ charity.charity_url }}"><img class="animated fadeInRightBig1 giverimage" src="{{ charity.image.url }}" height="300px" width="300px"></a>
+ </center>
+
+<h1 class="charityname">{{ charity.name }}</h1>
+ <article>
+<p class="charitydescription">{{ charity.description }}</p>
+ </article>
+<br>
+<div>
+<a href="{{ charity.charity_url }}"><img class="visit" src="{% static url %}images/vistsite.png"></a>
+
+</div>
 
 
-    <div id="container1">
-
-    <h1 class="charityname">{{ charity.name }}</h1>
-    <h2 class="charityslogan">{{ charity.slogan }}</h2>
-    <img class="charityimage" src="{{ charity.image.url }}" height="300px" width="500px">
-    <article>
-    <p class="charitydescription">{{ charity.description }}</p>
-    </article>
+<div class="edit">
+    <a href="{% url "edit_charity" charity.id %}">Edit</a>
     <br>
-    <div>
-    {{ charity.video }}
-    </div>
-    <div>
-        <a href="{{ charity.charity_url }}"><img class="visit" src="{% static url %}images/vistsite.png"></a>
+    <a href="{% url "delete_charity" charity.id %}">Delete</a>
+    <br>
+</div>
 
-    </div>
-    </div>
-    <br>
-
-    <br>
-    <a href="{% url "edit_charity" charity.id %}">Edit charity</a>
-    <br>
-    <a href="{% url "delete_charity" charity.id %}">Delete charity</a>
-    <br>
-    <a href="{% url "charities" %}">Back to Charities</a>
 {% endblock %}

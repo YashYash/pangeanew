@@ -1,0 +1,42 @@
+{% extends "fbprofilepages.html" %}
+{% load staticfiles %}
+{% block moreresources %}
+<link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
+{% endblock %}
+{% block leftli %}
+                  <li><a href="#">Accounts</a></li>
+                  <li><a href="#">M D Videos</a></li>
+                  <li><a href="#">Newsfeed</a></li>
+
+{% endblock %}
+{% block content %}
+    <body id="givers">
+<div id="wrapper" class="animated fadeInRightBig1 down">
+
+    <center><img src="{% static url %}images/circ.png"></center>
+
+    <section>
+
+            <div id="btn-container2">
+                <a href="#"><input type="submit" value="Payments" id="button-green"/></a>
+                <div class="ease"></div>
+            </div>
+</section>
+    <section>
+        <div id="btn-container1">
+            <a href="#"><input type="submit" value="Analytics" id="button-green"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+
+        <section>
+        <div id="btn-container2">
+            <a href= "{% url 'fbgiver_info' %}"><input type="submit" value="View Profile" id="button-green"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+
+
+</div><!-- wrapper -->
+</body>
+{% endblock %}

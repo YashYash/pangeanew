@@ -6,7 +6,7 @@ from tastypie.resources import ModelResource
 
 class UserObjectsOnlyAuthorization(Authorization):
     def read_list(self, object_list, bundle):
-        return object_list.filter(user=bundle.request.user)
+        return object_list
 
     def read_detail(self, object_list, bundle):
         return bundle.obj.user == bundle.request.user
@@ -36,4 +36,3 @@ class UserObjectsOnlyAuthorization(Authorization):
 
     def delete_detail(self, object_list, bundle):
         raise Unauthorized("Sorry, no deletes.")
-

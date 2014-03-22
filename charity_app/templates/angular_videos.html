@@ -5,27 +5,25 @@
 
 
         <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/flexslider.css">
-        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js'></script>
+
 
         <!--Flex slider -->
         <script src="{% get_static_prefix %}js/jquery.flexslider.js"></script>
 
-    <!--angular javascript stuff-->
+        <!--angular javascript stuff-->
     	<script src="{% get_static_prefix %}js/vendor/angular.js"></script>
 		<script src="{% get_static_prefix %}js/vendor/angular-route.js"></script>
         <script src="{% get_static_prefix %}js/vendor/angular-resource.js"></script>
+        <script src="{% get_static_prefix %}js/angular-flexslider.js"></script>
 
         <!-- JavaScript Files -->
 		<script src="{% get_static_prefix %}js/app.js"></script>
-        <link rel="stylesheet" href="{% static "css/video.css" %}">
 
         <!-- Controllers -->
         <script src="{% get_static_prefix %}js/controllers/videoController.js"></script>
         <script src="{% get_static_prefix %}js/controllers/charityController.js"></script>
         <script src="{% get_static_prefix %}js/controllers/giverController.js"></script>
 
-        <!--Video-->
-        <script src="{% get_static_prefix %}js/video.js"></script>
 
 
 
@@ -39,22 +37,12 @@
 
 {% endblock %}
 
+
 {% block content %}
-
-
-        <div class="back">
-            <h2 class="down">Static Shit</h2>
-            <div ng-app="videoApp">
+        <div class="back3">
+            <div ng-app="app">
                 <div ng-view></div>
             </div>
-            <h2 class="down">Also Static shit</h2>
         </div>
-
-
 {% endblock %}
 
-{% block page %}
-
-<div class="back"></div>
-
-{% endblock %}

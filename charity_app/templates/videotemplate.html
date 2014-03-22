@@ -26,11 +26,14 @@
 
 
            <ul id="status">
+           <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
+            <li><a href="{% url 'user_profile' %}"><img class="profilepic" src="{{ activeuser.profile_pic.url }}" height="70px" width="70px"></a></li>
             {% if user.is_authenticated %}
-            <li id="loggedin">Logged in as: {{ user.username }}</li>
-            <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
-            <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></li>
+            <li id="loggedin"><a href="{% url 'user_profile' %}">{{ activeuser.name }}</a></li>
+
+{#            <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></li>#}
             {% endif %}
+
             </ul>
 
         </nav>

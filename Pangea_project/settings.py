@@ -119,6 +119,7 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'users'
 LOGIN_REDIRECT_URL = "users"
 LOGIN_URL = 'auth_login'
 
+
 import smtplib
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

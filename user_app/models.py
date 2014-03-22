@@ -10,3 +10,15 @@ class ActiveUser(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Newsfeed(models.Model):
+    title = models.CharField(max_length=500)
+    posted = models.DateTimeField(auto_now=True)
+    article = models.URLField(max_length=1000, null=True, blank=True)
+    image = models.ImageField(upload_to="images/newsfeed", null=True, blank=True)
+    quote = models.CharField(max_length=1000, null=True, blank=True)
+    user = models.ForeignKey(User, related_name="newsfeed")
+
+
+    def __unicode__ (self):
+        return self.title

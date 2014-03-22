@@ -14,8 +14,8 @@ class CharityResource(ModelResource):
 
     class Meta:
         queryset = Charity.objects.all()
-        authentication = BasicAuthentication()
-        authorization = UserObjectsOnlyAuthorization()
+        # authentication = BasicAuthentication()
+        # authorization = UserObjectsOnlyAuthorization()
         resource_name = "charity"
         allowed_methods = ['get', 'post']
 
@@ -31,18 +31,18 @@ class UserResource(ModelResource):
     class Meta:
         queryset = User.objects.all()
         resource_name = 'user'
-        authorization = UserObjectsOnlyAuthorization()
-        authentication = BasicAuthentication()
+        # authentication = BasicAuthentication()
 
 
 class ClickCountResource(ModelResource):
-    video = ToOneField(VideoResource, 'video', full=True)
-    user = ToOneField(UserResource, 'user', full=True)
+    video = ToOneField(VideoResource, 'video', full=False)
+    user = ToOneField(UserResource, 'user', full=False, blank=True)
 
     class Meta:
         queryset = ClickCount.objects.all()
         resource_name = "click_count"
-        authorization = Authorization()
+        authorization = UserObjectsOnlyAuthorization()
+        authentication = BasicAuthentication()
         allowed_methods = ['get', 'post']
 
 

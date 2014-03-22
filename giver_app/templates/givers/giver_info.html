@@ -1,8 +1,6 @@
 {% extends "adsandprofiles.html" %}
 {% load staticfiles %}
-{% block moreresources %}
-<
-{% endblock %}
+
 {% block leftli %}
                   <li><a href="{% url "users" %}">Accounts</a></li>
                   <li><a href="{% url "stream" %}">M D Videos</a></li>
@@ -14,7 +12,9 @@
 <img class="background" src="{{ giver.background_image.url }}" height="300px" width="300px">
 
 <center>
+<div id="half">
 <img class="profileback" src="{{ giver.cover_photo.url }}">
+</div>
 <h2 class="charityslogan">{{ giver.slogan }}</h2>
 
 <a href="{{ giver.giver_url }}"><img class="animated fadeInRightBig1 giverimage" src="{{ giver.image.url }}" height="300px" width="300px"></a>
@@ -44,6 +44,5 @@
 </div>
 
 </center>
-</div>
 
 {% endblock %}

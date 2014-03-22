@@ -22,11 +22,17 @@
     <center><img src="{% static url %}images/circ.png"></center>
          <section>
             <div id="btn-container2">
-                <a href="{% url 'new_charity' %}"><input type="submit" value="Add a Charity (if yout haven't yet)" id="button-red"/></a>
+                <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_3hi3ZKNtOuxDhGDN7Gp9ckHJjDyqfN3h"><input type="submit" value="Payments" id="button-red"/></a>
                 <div class="ease"></div>
             </div>
         </section>
 
+        <section>
+            <div id="btn-container2">
+                <a href= "{% url 'charity_info' %}" ><input type="submit" value="View Profile" id="button-red"/></a>
+                <div class="ease"></div>
+            </div>
+        </section>
 
         <section>
             <div id="btn-container2">
@@ -36,12 +42,7 @@
         </section>
 
 
-        <section>
-            <div id="btn-container2">
-                <a href= "{% url 'charity_info' %}" ><input type="submit" value="View Profile" id="button-red"/></a>
-                <div class="ease"></div>
-            </div>
-        </section>
+
 
 
 

@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Pangea</title>
-</head>
-<body>
-<h1>Edit Charity {{ charity.name }}</h1>
+{% extends "logintemp.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div id="backed"></div>
+<center>
+<div class="animated fadeInRightBig1 down8">
+<center>
+<img id="logoo" src="{% static url %}images/circ.png">
+<h1>{{ charity.name }}</h1>
+</center>
 <form method="post">
     {%  csrf_token %}
-    {{ form1 }}
-    <input type="submit" value="Update Charity"/>
+    {% for field in form1 %}<hr>
+
+       <ul class="form">
+      <li>{{ field.name }}: {{ field }}</li>
+       </ul>
+
+    {% endfor %}
+<center>
+    <input id="update" type="submit" value="Update"/>
+    <a id="backbtn" href="{% url "charity_info" %}"><--</a>
+     </center>
 </form>
-</body>
-</html>
+
+
+
+
+</center>
+{% endblock %}

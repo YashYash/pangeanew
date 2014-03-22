@@ -1,0 +1,17 @@
+<html>
+<head><title>Pangea</title></head>
+<body>
+<a href="{% url "home" %}">Home</a>
+<h1>{{ giver.name }}</h1>
+
+Description: {{ giver.description }}
+<br>
+Image: {{ charity.image }}
+
+<a href="{% url "fbedit_giver" fbgiver.id %}">Edit Giver</a>
+<br>
+<a href="{% url "fbdelete_giver" fbgiver.id %}">Delete Giver</a>
+<br>
+<a href="{% url "fbgivers" %}">Back to Givers</a>
+</body>
+</html>

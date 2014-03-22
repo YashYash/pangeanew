@@ -33,7 +33,8 @@ input {
     border: 0;
     outline: 0;
     background: transparent;
-    border-bottom: 2px solid black;
+    width:40%;
+
 font-family: 'News Cycle', sans-serif;
     font-size: 20px;
     color:white;
@@ -137,10 +138,106 @@ font-family: 'Poiret One', sans-serif;
 
 .down8{
     position:relative;
-    bottom:10px;
+    top:20px;
     width:80%;
     padding:90px;
     height:230%;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 25px;
+    color:white;
+    background-image:url('../images/loginback.png');
+    background-size: cover;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.down9{
+    position:relative;
+    top:20px;
+    width:80%;
+    padding:90px;
+    height:150%;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 25px;
+    color:white;
+    background-image:url('../images/loginback.png');
+    background-size: cover;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.down10{
+    position:relative;
+    top:20px;
+    width:80%;
+    padding:90px;
+    height:100%;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 25px;
+    color:white;
+    background-image:url('../images/loginback.png');
+    background-size: cover;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.down11{
+    position:relative;
+    top:20px;
+    width:80%;
+    padding:90px;
+    height:95%;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 25px;
+    color:white;
+    background-image:url('../images/loginback.png');
+    background-size: cover;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.down12{
+    position:relative;
+    top:20px;
+    width:80%;
+    padding:90px;
+    height:145%;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 25px;
+    color:white;
+    background-image:url('../images/loginback.png');
+    background-size: cover;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.down13{
+    position:relative;
+    top:20px;
+    width:80%;
+    padding:90px;
+    height:180%;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 25px;
+    color:white;
+    background-image:url('../images/loginback.png');
+    background-size: cover;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.down14{
+    position:relative;
+    top:20px;
+    width:80%;
+    padding:90px;
+    height:55%;
     font-family: 'Poiret One', sans-serif;
     font-size: 25px;
     color:white;
@@ -172,6 +269,7 @@ input:hover{
 
 label:hover{
     text-shadow: 0 0 10px #fff;
+    text-align: left;
 }
 
 #update{
@@ -182,3 +280,45 @@ label:hover{
 
 }
 
+#backbtn{
+    font-size: 60px;
+    text-decoration: none;
+color:white;
+}
+
+#backed{
+    text-align: left;
+}
+
+#container {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 70%;
+	margin: auto;
+	color: #ffffff;
+	padding: 55px 1%;
+    text-align: center;
+
+}
+
+#id_video_url{
+    width:70%;
+}
+
+#id_title{
+    width:70%;
+}
+#id_charity{
+       background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+    color: white;
+        font-family: 'Poiret One', sans-serif;
+    font-size: 20px;
+}

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from user_app.forms import ActiveUserForm
-from user_app.models import ActiveUser
+from user_app.forms import ActiveUserForm, NewsfeedForm
+from user_app.models import ActiveUser, Newsfeed
 
 
 def users(request):
@@ -32,6 +32,20 @@ def new_user(request):
         form = ActiveUserForm()
     data = {'form': form}
     return render(request, "users/new_user.html", data)
+
+def newsfeed(request):
+    if request.method == "POST":
+        form5 = NewsfeedForm(request.POST)
+        if form5.is_valid():
+            newsfeed = form5.save(commit=False)
+            newsfeed.user = request.user
+            newsfeed.save()
+            return redirect("newsfeed")
+    else:
+        form5 = NewsfeedForm()
+    newsfeed = Newsfeed.objects.all()
+    data = {'form5': form5, 'newsfeed': newsfeed}
+    return render(request, "users/newsfeed.html", data)
 
 
 def view_user(request, user_id):

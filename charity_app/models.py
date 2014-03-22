@@ -18,7 +18,7 @@ class Charity(models.Model):
 
 
 class Video(models.Model):
-    charity = models.ForeignKey(Charity)
+    charity = models.ForeignKey(Charity, related_name="videos")
     title = models.CharField(max_length=250)
     posted = models.DateTimeField(auto_now=True)
     video_url = models.URLField()

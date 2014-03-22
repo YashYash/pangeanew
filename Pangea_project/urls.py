@@ -46,7 +46,10 @@ urlpatterns = patterns('',
     url(r'^videos/(?P<video_id>\w+)/$', 'charity_app.views.view_video', name='view_video'),
     url(r'^videos/(?P<video_id>\w+)/edit/$', 'charity_app.views.edit_video', name='edit_video'),
     url(r'^videos/(?P<video_id>\w+)/delete/$', 'charity_app.views.delete_video', name='delete_video'),
+
+    # Users in user_app
     url(r'^users/$', 'user_app.views.users', name='users'),
+    url(r'^users/newsfeed/$', 'user_app.views.newsfeed', name='newsfeed'),
     url(r'^users/home/$', 'user_app.views.users_home', name='users_home'),
     url(r'^users/new/$', 'user_app.views.new_user', name='new_user'),
     url(r'^users/profile/$', 'user_app.views.user_profile', name='user_profile'),
@@ -94,6 +97,7 @@ urlpatterns = patterns('',
 
     # givers
     url(r'^givers/$', 'giver_app.views.givers', name='givers'),
+    url(r'^givers/stripe/$', 'giver_app.views.stripe', name='stripe'),
     url(r'^givers/new/$', 'giver_app.views.new_giver', name='new_giver'),
     url(r'^givers/profil/$', 'giver_app.views.giver_profil', name='giver_profile'),
     url(r'^givers/info/$', 'giver_app.views.giver_info', name='giver_info'),
@@ -101,6 +105,18 @@ urlpatterns = patterns('',
     url(r'^givers/(?P<giver_id>\w+)/edit/$', 'giver_app.views.edit_giver', name='edit_giver'),
     url(r'^givers/(?P<giver_id>\w+)/delete/$', 'giver_app.views.delete_giver', name='delete_giver'),
     url(r'^givers/page/$', 'giver_app.views.giver_page', name='giver_page'),
+
+    #fb givers
+
+    url(r'^fbgivers/$', 'giver_app.views.fbgivers', name='fbgivers'),
+    url(r'^fbgivers/stripe/$', 'giver_app.views.fbstripe', name='fbstripe'),
+    url(r'^fbgivers/new/$', 'giver_app.views.fbnew_giver', name='fbnew_giver'),
+    url(r'^fbgivers/profil/$', 'giver_app.views.fbgiver_profil', name='fbgiver_profile'),
+    url(r'^fbgivers/info/$', 'giver_app.views.fbgiver_info', name='fbgiver_info'),
+    url(r'^fbgivers/(?P<fbgiver_id>\w+)/$', 'giver_app.views.fbview_giver', name='fbview_giver'),
+    url(r'^fbgivers/(?P<fbgiver_id>\w+)/edit/$', 'giver_app.views.fbedit_giver', name='fbedit_giver'),
+    url(r'^fbgivers/(?P<fbgiver_id>\w+)/delete/$', 'giver_app.views.fbdelete_giver', name='fbdelete_giver'),
+    url(r'^fbgivers/page/$', 'giver_app.views.giver_page', name='fbgiver_page'),
 
     #Stripe payment
     url(r'^payment/$', 'charity_app.views.payment', name='payment'),

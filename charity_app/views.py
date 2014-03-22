@@ -94,9 +94,10 @@ def new_charity(request):
 @login_required
 # never used. Its there for code reference.
 def view_charity(request, charity_id):
-    charity = request.user.charity.get()
+    charity = request.user.charity
     print charity.name
-    data = {'charity': charity}
+    activeuser = request.user.activeuser
+    data = {'charity': charity, 'activeuser': activeuser}
     return render(request, "charities/view_charity.html", data)
 @login_required
 # used on the charity_info page as a "edit charity" button. So the charity can make cahnges to their profile
@@ -106,7 +107,7 @@ def edit_charity(request, charity_id):
         form1 = CharityForm(request.POST, instance=charity)
         if form1.is_valid():
             if form1.save():
-                return redirect("/charities/{}".format(charity_id))
+                return redirect("charities")
     else:
         form1 = CharityForm(instance=charity)
     data = {"charity": charity, "form1": form1}
@@ -121,7 +122,9 @@ def delete_charity(request, charity_id):
 # this is the charity profile page. Where they can view what there profile looks like for when others look at it
 def charity_info(request):
     charity = request.user.charity
-    data = {'charity': charity}
+    giver = request.user.giver
+    activeuser = request.user.activeuser
+    data = {'charity': charity, 'activeuser': activeuser, 'giver':giver}
     return render(request, "charities/charity_info.html", data)
 @login_required
 # non of the videos views have been used yet. I might use them when I start showing videos
@@ -139,7 +142,7 @@ def new_video(request):
         form2 = VideoForm(request.POST)
         if form2.is_valid():
             if form2.save():
-                return redirect("/videos")
+                return redirect("charities")
     else:
         form2 = VideoForm()
     data = {'form2': form2}
@@ -191,7 +194,9 @@ def payment(request):
 @login_required
 # the angular page where all the videos are shown in the ng-view
 def angular(request):
-    return render(request, "angular_videos.html")
+    activeuser = request.user.activeuser
+    data = {'activeuser': activeuser}
+    return render(request, "angular_videos.html", data)
 @login_required
 #this page is no longer used. I use it to save my auth_views redirects
 def logs(request):

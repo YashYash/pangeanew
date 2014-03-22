@@ -1,19 +1,48 @@
-{% extends "profilepages.html" %}
+{% extends "adsandprofiles.html" %}
 {% load staticfiles %}
 
-
 {% block leftli %}
-    <li><a href="{% url "view_newsfeed" %}">News feed</a></li>
-    <li><a href="{% url "stream" %}">Micro-Donation Videos</a></li>
-    {% endblock %}
+                  <li><a href="{% url "users" %}">Accounts</a></li>
+                  <li><a href="{% url "stream" %}">M D Videos</a></li>
+                  <li><a href="{% url "givers" %}">News Feed</a></li>
+{% endblock %}
 
 {% block content %}
+
+    <img class="background" src="{{ charity.background_image.url }}">
+
+
+<center>
+<div id="half">
+<img class="profileback" src="{{ charity.cover_photo.url }}">
+</div>
+<h2 class="charityslogan">{{ charity.slogan }}</h2>
+
+<a href="{{ charity.charity_url }}"><img class="animated fadeInRightBig1 giverimage" src="{{ charity.image.url }}" height="300px" width="300px"></a>
+ </center>
+<center>
     <div id="container1">
-        <h3>Welcome {{ user.username }}</h3>
-        <h1>{{ charity.name }}</h1>
-        <img src="{{ charity.image }}">
-        <h3>{{ charity.description }}</h3>
-    </div>
+<h1 class="charityname">{{ charity.name }}</h1>
+ <article>
+<p class="charitydescription">{{ charity.description }}</p>
+    {% for vid in charity.giver_set.all %}
+     {{ vid.name }}
+     {% endfor %}
 
 
+ </article>
+<br>
+<div>
+<a href="{{ charity.charity_url }}"><img class="visit" src="{% static url %}images/vistsite.png"></a>
+</div>
+</div>
+
+
+<div class="edit">
+    <a href="{% url "edit_charity" charity.id %}">Edit</a>
+    <br>
+    <a href="{% url "delete_charity" charity.id %}">Delete</a>
+    <br>
+</div>
+</center>
 {% endblock %}
