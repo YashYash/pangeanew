@@ -107,7 +107,6 @@ def delete_giver(request, giver_id):
 @login_required
 def giver_profil(request):
     giver = request.user.giver
-    print giver.name
     data = {'giver': giver}
     return render(request, "givers/giver_profile.html", data)
 
@@ -117,10 +116,8 @@ def giver_page(request):
 @login_required
 def giver_info(request):
     giver = request.user.giver
-    print giver.name
     activeuser = request.user.activeuser
     data = {'giver': giver, 'activeuser': activeuser}
-    print activeuser.name
     return render(request, "givers/giver_info.html", data)
 
 
@@ -155,7 +152,6 @@ def fbview_giver(request, fbgiver_id):
 @login_required
 def fbedit_giver(request, fbgiver_id):
     giver = Giver.objects.get(id= fbgiver_id)
-    print giver
     if request.method == "POST":
         form3 = GiverForm(request.POST, instance= giver)
         print "POST"

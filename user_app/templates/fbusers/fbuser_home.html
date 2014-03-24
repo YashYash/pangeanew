@@ -1,0 +1,31 @@
+{% extends "fbprofilepages.html" %}
+{% load staticfiles %}
+
+
+{% block leftli %}
+                  <li><a href="{% url "fbusers" %}">Accounts</a></li>
+                  <li><a href="{% url "stream" %}">M D Videos</a></li>
+                  <li><a href="{% url "fbgivers" %}">News Feed</a></li>
+{% endblock %}
+
+{% block content %}
+<body id="userhome">
+<div id="wrapper" class="animated fadeInRightBig1 down3">
+    <center><img src="{% static url %}images/circ.png"></center>
+
+    <section>
+        <div id="btn-container1">
+            <a href="{% url 'fbuser_profile' %}"><input type="submit" value="Your Profile" id="button-blue"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+
+        <section>
+        <div id="btn-container1">
+            <a href="{% url 'fbcharities' %}"><input type="submit" value="Account Summary" id="button-blue"/></a>
+            <div class="ease"></div>
+        </div>
+    </section>
+</div><!-- wrapper -->
+</body>
+{% endblock %}

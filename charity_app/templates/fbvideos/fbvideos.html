@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+    <a href="{% url "home" %}">Home</a>
+    <ul>
+    <h3>Our Videos</h3>
+           {% for video in videos %}
+            <li><a href="{% url "view_video" video.id %}">{{ video.title }}</a></li>
+           {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url "new_video" %}">Sign Up</a>
+
+{% endblock main %}

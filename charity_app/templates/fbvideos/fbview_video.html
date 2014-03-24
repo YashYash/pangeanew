@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+<a href="{% url "home" %}">Home</a>
+<h1>Our Videos</h1>
+<h3>{{ video.title }}</h3>
+video: {{ video.video_url }}
+<br>
+<a href="{% url "fbedit_video" video.id %}">Edit Video</a>
+<br>
+<a href="{% url "fbdelete_video" video.id %}">Delete Video</a>
+<br>
+<a href="{% url "fbvideos" %}">Back to Videos</a>
+{% endblock main %}

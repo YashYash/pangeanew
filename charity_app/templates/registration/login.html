@@ -4,7 +4,6 @@
 
 {% block content %}
 <center>
-
 <div class="animated fadeInRightBig1 down">
 <img src="{% static url %}images/circ.png">
 
@@ -19,8 +18,11 @@
 <p class="password">{% trans "Forgot password" %}?<a href="{% url 'auth_password_reset' %}"><br>{% trans "Reset it" %}</a></p>
 {#<p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>#}
 
-            <a href="{% url "social:begin" "facebook" %}"><img src="{% static url %}images/fbinw.png"></a>
+            <a href="{% url "social:begin" "facebook" %}"><img src="{% static url %}images/fbinw.png"></a><br>
+    <a class="backbtn" href="{% url "index" %}"><img src="{% static url %}images/backarrow.png" width="70px" length="70px"></a>
+
     </div>
+
 </center>
 {% endblock %}
 

@@ -33,13 +33,13 @@
 {% block leftli %}
 
     <li><a href="{% url "users" %}">Accounts</a></li>
-    <li><a href="{% url "givers" %}">Newsfeed</a></li>
+    <li><a href="{% url "newsfeed" %}">Newsfeed</a></li>
 
 {% endblock %}
 
 
 {% block content %}
-        <div class="back3">
+        <div>
             <div ng-app="app">
                 <div ng-view></div>
             </div>

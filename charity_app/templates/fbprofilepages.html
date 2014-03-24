@@ -27,8 +27,13 @@
 
 
            <ul id="status">
-<li>Log out</li>
-               <li>Username</li>
+       <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
+               {{user.socialaccount_set.all.0.get_avatar_url}}
+            {% if user.is_authenticated %}
+            <li id="loggedin"><a href="{% url 'user_profile' %}">{{ user.username }}</a></li>
+
+{#            <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></li>#}
+            {% endif %}
 
             </ul>
 

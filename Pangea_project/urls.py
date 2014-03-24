@@ -40,6 +40,15 @@ urlpatterns = patterns('',
     url(r'^charities/(?P<charity_id>\w+)/edit/$', 'charity_app.views.edit_charity', name='edit_charity'),
     url(r'^charities/(?P<charity_id>\w+)/delete/$', 'charity_app.views.delete_charity', name='delete_charity'),
 
+    #fb charities
+    url(r'^fbcharities/$', 'charity_app.views.fbcharities', name='fbcharities'),
+    url(r'^fbcharities/home$', 'charity_app.views.fbcharity_home', name='fbcharity_home'),
+    url(r'^fbcharities/new/$', 'charity_app.views.fbnew_charity', name='fbnew_charity'),
+    url(r'^fbcharities/info/$', 'charity_app.views.fbcharity_info', name='fbcharity_info'),
+    url(r'^fbcharities/(?P<fbcharity_id>\w+)/$', 'charity_app.views.fbview_charity', name='fbview_charity'),
+    url(r'^fbcharities/(?P<fbcharity_id>\w+)/edit/$', 'charity_app.views.fbedit_charity', name='fbedit_charity'),
+    url(r'^fbcharities/(?P<fbcharity_id>\w+)/delete/$', 'charity_app.views.fbdelete_charity', name='fbdelete_charity'),
+
     # Videos in charity_app
     url(r'^videos/$', 'charity_app.views.videos', name='videos'),
     url(r'^videos/new/$', 'charity_app.views.new_video', name='new_video'),
@@ -47,8 +56,11 @@ urlpatterns = patterns('',
     url(r'^videos/(?P<video_id>\w+)/edit/$', 'charity_app.views.edit_video', name='edit_video'),
     url(r'^videos/(?P<video_id>\w+)/delete/$', 'charity_app.views.delete_video', name='delete_video'),
 
+
+
     # Users in user_app
     url(r'^users/$', 'user_app.views.users', name='users'),
+    url(r'^users/add_profile/$', 'user_app.views.addprofile', name='add_profile'),
     url(r'^users/newsfeed/$', 'user_app.views.newsfeed', name='newsfeed'),
     url(r'^users/home/$', 'user_app.views.users_home', name='users_home'),
     url(r'^users/new/$', 'user_app.views.new_user', name='new_user'),
@@ -56,6 +68,14 @@ urlpatterns = patterns('',
     url(r'^users/(?P<user_id>\w+)/$', 'user_app.views.view_user', name='view_user'),
     url(r'^users/(?P<user_id>\w+)/edit/$', 'user_app.views.edit_user', name='edit_user'),
     url(r'^users/(?P<user_id>\w+)/delete/$', 'user_app.views.delete_user', name='delete_user'),
+
+    # fbUsers in user_app
+    url(r'^fbusers/$', 'user_app.views.fbusers', name='fbusers'),
+    url(r'^fbusers/add_profile/$', 'user_app.views.fbaddprofile', name='fbadd_profile'),
+    url(r'^fbusers/newsfeed/$', 'user_app.views.fbnewsfeed', name='fbnewsfeed'),
+    url(r'^fbusers/home/$', 'user_app.views.fbusers_home', name='fbusers_home'),
+    url(r'^fbusers/profile/$', 'user_app.views.fbuser_profile', name='fbuser_profile'),
+
 
     # Admin
     url(r'^admin/', include(admin.site.urls)),
@@ -124,6 +144,7 @@ urlpatterns = patterns('',
 
     #angular Micro donation video page
     url(r'^stream_videos/$', 'charity_app.views.angular', name="stream"),
+    url(r'^fbstream_videos/$', 'charity_app.views.fbangular', name="fbstream"),
 
     #api and tastypie
     url(r'api/lecture/doc/',

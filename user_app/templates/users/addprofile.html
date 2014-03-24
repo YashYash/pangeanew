@@ -1,0 +1,34 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>{% block title %}User test{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/grid.css" %}">
+    <script type="text/javascript" src="{% static "jquery/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/grid.js" %}"></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
+    {% block moresources %}{% endblock %}
+</head>
+
+
+<body id="charities">
+    <div id="wrapper" class="animated fadeInRightBig1 down4">
+    <center><img src="{% static url %}images/circ.png"></center>
+         <section>
+            <div id="btn-container2">
+                <a href="{% url 'new_user' %}" ><input type="submit" value="Add your profile" id="button-red"/></a>
+                <div class="ease"></div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+    </div><!-- wrapper -->
+</body>

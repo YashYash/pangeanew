@@ -27,6 +27,13 @@ font-family: 'Sail', cursive;
     height:100%;
 font-family: 'Sail', cursive;
 }
+
+#quemsomos1 {
+	background-image:url('../images/kids.jpg');
+    height:100%;
+font-family: 'Sail', cursive;
+}
+
 #missao {
 	background-image:url('../images/kids.jpg');
 
@@ -41,8 +48,10 @@ font-family: 'Sail', cursive;
 /** Formata o article que vai o texto **/
 .bgParallax article {
   width: 70%;
+  height: auto;
   text-align: center;
-  height:100%;
+  align-content: center;
+
 
   margin:0 auto;
   padding:5% 0 0;
@@ -201,6 +210,11 @@ nav ul li a:hover {text-shadow: 0 0 10px #fff;}
 		position:absolute;
 		left:100px;
 	}
+    #moveimage{
+    position: relative;
+    top: 400px;
+
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -255,6 +269,11 @@ nav ul li a:hover {text-shadow: 0 0 10px #fff;}
 		line-height: 32px;
 		color: #fff;
 	}
+    #moveimage{
+    position: relative;
+    top: 400px;
+
+}
 }
 
 
@@ -312,12 +331,7 @@ font-family: 'Damion', cursive;
 	margin-right: auto;
 }
 /* Floats button in the middle */
-section{
-	margin: 50px 0;
-	max-width: 500px;
-	margin-left: auto;
-	margin-right: auto;
-}
+
 
 
 
@@ -336,4 +350,177 @@ section{
 #inpage{
     position:relative;
     bottom:60px;
+}
+
+#usercircle{
+    position: relative;
+    right:70px;
+    top:200px;
+    width:15%;
+    height: 25%;
+}
+
+#charitycircle{
+    position: relative;
+    top:30px;
+    left:400px;
+    width:15%;
+    height: 25%;
+}
+
+.circle{
+    height: 100%;
+    width: 120%;
+}
+
+#full{
+    width:100%;
+}
+
+.grid {
+  overflow: hidden;
+  padding: 0.5em 0 0 0.5em;
+  max-width: 100%;
+  position: relative;
+    right:200px;
+  margin: 10px;
+}
+.grid li {
+  padding: 30px;
+}
+
+.grid li.wide {
+  width: 100%;
+}
+.grid li a {
+  color: #fff;
+}
+
+@media all and (min-width: 27em) {
+  .grid li {
+    width: 50%;
+    float: left;
+  }
+    #moveimage{
+    position: relative;
+    top: 400px;
+
+    }
+}
+
+@media all and (min-width: 40em) {
+  .grid li {
+    width: 50%;
+  }
+  .grid li.wide {
+    width: 66.666666%;
+  }
+  #moveimage{
+    position: relative;
+    top: 400px;
+
+    }
+}
+@media all and (min-width: 60em) {
+  .grid li {
+    width: 25%;
+  }
+  .grid li.wide {
+    width: 50%;
+  }
+   #moveimage{
+    position: relative;
+    top: 400px;
+
+    }
+}
+
+
+
+#pattern{
+    position: relative;
+    left:200px;
+
+}
+
+.panel {
+    height: 30%;
+    margin: auto;
+    position: relative;
+
+}
+
+.card {
+    height:25%;
+    width: 40%;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+
+}
+
+.front {
+    z-index: 2;
+}
+
+.back {
+    z-index: 1;
+    -webkit-transform: rotateX(-180deg);
+    -ms-transform: rotateX(-180deg);
+    -moz-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+
+}
+
+.panel:hover .front {
+    z-index: 1;
+    -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+.panel:hover .back {
+    z-index: 2;
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+}
+
+#black{
+    background-image: url("../images/divback.png");
+    align-content: center;
+    height: 100%;
+
+}
+
+#moveimage{
+    position: relative;
+    top:20px;
+
+
+
+}
+
+#logocircle{
+    position: relative;
+    bottom:25px;
+
+}
+
+p{
+    width: 70%;
+}
+
+.lorem{
+        width: 70%;
+
 }

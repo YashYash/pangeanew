@@ -1,0 +1,48 @@
+{% extends "fbvideotemplate.html" %}
+{% load static %}
+
+{% block moresources %}
+
+
+        <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/flexslider.css">
+
+
+        <!--Flex slider -->
+        <script src="{% get_static_prefix %}js/jquery.flexslider.js"></script>
+
+        <!--angular javascript stuff-->
+    	<script src="{% get_static_prefix %}js/vendor/angular.js"></script>
+		<script src="{% get_static_prefix %}js/vendor/angular-route.js"></script>
+        <script src="{% get_static_prefix %}js/vendor/angular-resource.js"></script>
+        <script src="{% get_static_prefix %}js/angular-flexslider.js"></script>
+
+        <!-- JavaScript Files -->
+		<script src="{% get_static_prefix %}js/app.js"></script>
+
+        <!-- Controllers -->
+        <script src="{% get_static_prefix %}js/controllers/videoController.js"></script>
+        <script src="{% get_static_prefix %}js/controllers/charityController.js"></script>
+        <script src="{% get_static_prefix %}js/controllers/giverController.js"></script>
+
+
+
+
+
+{% endblock %}
+
+{% block leftli %}
+
+    <li><a href="{% url "fbusers" %}">Accounts</a></li>
+    <li><a href="{% url "fbnewsfeed" %}">Newsfeed</a></li>
+
+{% endblock %}
+
+
+{% block content %}
+        <div>
+            <div ng-app="myapp">
+                <div ng-view></div>
+            </div>
+        </div>
+{% endblock %}
+

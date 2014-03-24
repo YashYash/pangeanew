@@ -1,14 +1,59 @@
-{% extends "nonav.html" %}
+{% extends "newsfeedtemp.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block moreresources %}
+
+    <link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
+
+{% endblock %}
+
+{% block leftli %}
+
+      <li><a href="{% url "users" %}">Accounts</a></li>
+      <li><a href="{% url "stream" %}">M D Videos</a></li>
+      <li><a href="{% url "newsfeed" %}">Newsfeed</a></li>
+
+
+{% endblock %}
+
 {% block content %}
-<h1>Add a User</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form5 }}
-    <input type="submit" value="Add my User"/>
+
+
+<center>
+<div class="down15">
+<div class="animated fadeInRightBig1">
+<img src="{% static url %}images/circ.png">
+
+<form method="post" class="newsform">
+       <h1 class="font right">Share something wonderful</h1>
+
+    {%  csrf_token %}
+    {% for field in form5 %}
+
+       <ul class="form">
+      <li>{{ field.name }}: {{ field }}</li>
+       </ul>
+
+    {% endfor %}
+    <input class="font right" id="update" type="submit" value="Update"/>
+
 </form>
 
+<div class="down4">
     {% for news in newsfeed reversed %}
-        {{ news.title }},{{ news.posted }},{{ user.username }}<br>
+        <div class="posts">
+        <img class="profilepic" src="{{ news.activeuser.profile_pic.url }}" height="70px" width="70px"><br>
+        <h1 class="font">{{ news.title }}</h1><br>
+        "{{ news.quote }}"<br>
+        {{ news.posted }}<br>
+        {{ news.article }}<br>
+        {{ user.username }}<br>
+        </div>
     {% endfor %}
+</div>
+</div>
+</div>
+</center>
 
 {% endblock %}

@@ -1,0 +1,85 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>{% block title %}User test{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <script type="text/javascript" src="{% static "jquery/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="{% static "js/grid.js" %}"></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
+    {% block moresources %}{% endblock %}
+</head>
+
+<link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
+<body>
+
+<script type="text/javascript">
+    // This identifies your website in the createToken call below
+    Stripe.setPublishableKey('pk_test_t1QV5ese4yqCTJ8rCK9JgdJk');
+    // ...
+    jQuery(function($) {
+  $('#payment-form').submit(function(event) {
+    var $form = $(this);
+
+    // Disable the submit button to prevent repeated clicks
+    $form.find('button').prop('disabled', true);
+
+    Stripe.card.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
+});
+
+    var stripeResponseHandler = function(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $form.find('.payment-errors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    // token contains id, last4, and card type
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    $form.get(0).submit();
+  }
+};
+</script>
+
+  <div class="container">
+
+	<div class="menu-trigger"></div>
+
+
+
+	</div>
+
+	<script>
+		window.onscroll=function(){document.getElementById('navbar').setAttribute('class', (window.pageYOffset>5?'fixednav clearfix':'clearfix'));}
+	</script>
+
+    <script>
+        (function() {
+            var $body = document.body
+            , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
+
+            if ( typeof $menu_trigger !== 'undefined' ) {
+                $menu_trigger.addEventListener('click', function() {
+                    $body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
+                });
+            }
+
+        }).call(this);
+
+    </script>
+
+{% block content %}
+{% endblock %}
+
+</body>

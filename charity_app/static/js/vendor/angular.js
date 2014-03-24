@@ -18411,7 +18411,7 @@ var ngSwitchDefaultDirective = ngDirective({
                restrict: 'E',
                transclude: true,
                scope: { title:'@' },
-               template: '<div style="border: 1px solid black;">' +
+               template: '<div>' +
                            '<div style="background-color: gray">{{title}}</div>' +
                            '<div ng-transclude></div>' +
                          '</div>'
@@ -18612,7 +18612,7 @@ var ngOptionsMinErr = minErr('ngOptions');
           Select <a href ng-click="color={name:'not in list'}">bogus</a>.<br>
           <hr/>
           Currently selected: {{ {selected_color:color}  }}
-          <div style="border:solid 1px black; height:20px"
+          <div style="height:20px"
                ng-style="{'background-color':color.name}">
           </div>
         </div>

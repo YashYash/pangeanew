@@ -1,18 +1,9 @@
+<div class="center">
+<div class="back3">
 
 
-<center>
-
-    <!--form class="down">
-        <input type="button" id="show-section1" value="Block View" ng-click="section(1)" ng-class="{'btn-primary': is(1)}" />
-        <input type="button" id="show-section2" value="Slideshow" ng-click="section(2)" ng-class="{'btn-primary': is(2)}" />
-
-    </form-->
-
-</center>
-
-<div>
     <!--section id="section2" ng-show="is(2)"-->
-    <div class="down4">
+    <div class="top">
 
         <flex-slider slide="item in all track by item.id" my-post-repeat-directive>
             <li>
@@ -39,22 +30,22 @@
                         will donate 10 cents to the <a class="links"
                                                        href="#/charity/{{ item.charity.id }}/">{{ item.charity.name }}</a>
                     </h3>
-
+                    <div class="fb-comments" data-href="{{ item.trusted_url }}" data-numposts="5" data-colorscheme="light"></div>
                 </center>
 
             </li>
         </flex-slider>
-        <!--/section-->
-    </div>
-</div>
 
-<!--section id="section1" ng-show="is(1)"-->
-<div class="down4">
-        <center>
+    </div>
+
+
+
+
+
             <input id="custom" type="text" ng-model="searchText" placeholder="Search for a Video" id="Search">
 
-            <div ng-repeat="item in all|filter:searchText" id="center" my-post-repeat-directive>
-                <center>
+            <div ng-repeat="item in all|filter:searchText" my-post-repeat-directive>
+
                     <hr>
                     <h1 class="font big" id="move">{{ item.title }}</h1>
 
@@ -75,22 +66,20 @@
                          data-show-faces="true" data-share="false"></div>
                     <div class="fb-send" data-href="{{ item.video_url }}" data-colorscheme="light"></div>
 
-                    <h3 class="font normal">For every 10 likes and shares ,<a class="links"
-                                                                              href="#/giver/{{ item.random_giver.id }}/">{{ item.random_giver.name }}</a>,
+                    <h3 class="font normal">For every 10 likes and shares , <a class="links"
+                                                                              href="#/giver/{{ item.random_giver.id }}/">{{ item.random_giver.name }}</a> ,
                         will donate 10 cents to the <a class="links"
                                                        href="#/charity/{{ item.charity.id }}/">{{ item.charity.name }}</a>
                     </h3>
-                </center>
+                    <div class="fb-comments" data-href="{{ item.trusted_url }}" data-numposts="5" data-colorscheme="light"></div>
+
             </div>
-        </center>
+
     </div>
+
+
+
+
+
+
 </div>
-<!--/section-->
-
-</body>
-
-
-
-
-
-

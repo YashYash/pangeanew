@@ -1,11 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Crushed|Sail|Montez|Merienda+One|Radley|Italianno|Rancho|Damion|Leckerli+One|Uncial+Antiqua|Amarante);
 @import url(http://fonts.googleapis.com/css?family=News+Cycle|Poiret+One|Sail|Kite+One|Carrois+Gothic+SC);
-
-
 body{
-    background-image:url('../images/foggy-sunrise-nature-hd-wallpaper-1920x1200-10649.jpg');
-        background-position: top left;
-    background-attachment: fixed;
+    background-image:url("../images/foggy-sunrise-nature-hd-wallpaper-1920x1200-10649.jpg");
+    background-size: cover;
+	background-attachment: fixed;
+    z-index: -999;
+    width:100%;
 
 }
 
@@ -307,6 +307,20 @@ color:white;
 
 #id_title{
     width:70%;
+        font-family: 'Poiret One', sans-serif;
+
+}
+
+#id_article{
+    width:70%;
+        font-family: 'Poiret One', sans-serif;
+
+}
+
+#id_quote{
+    width:70%;
+        font-family: 'Poiret One', sans-serif;
+
 }
 #id_charity{
        background: transparent;
@@ -322,3 +336,21 @@ color:white;
         font-family: 'Poiret One', sans-serif;
     font-size: 20px;
 }
+
+li{
+    color:white;
+    font-size:20px;
+    font-family: 'Poiret One', sans-serif;
+    text-transform:capitalize;
+
+
+}
+
+.newsform{
+    background-image:url("../images/divback.png");
+    width:110%;
+    position: relative;
+    right:10px;
+
+}
+

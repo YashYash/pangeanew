@@ -24,7 +24,7 @@ def signup(request):
                 form.cleaned_data["email"],
                 form.cleaned_data["password"],
             )
-        return redirect("login")
+        return redirect("users")
 
     else:
         form = SignupForm()
@@ -69,12 +69,26 @@ def charity_home(request):
     print charity.name
     data = {'charity': charity}
     return render(request, "charities/charities.html", data)
+
+@login_required
+# goes to the charity_home page. The page is not used. Its there so I can test stuff.
+def fbcharity_home(request):
+    charity = request.user.charity.get()
+    data = {'charity': charity}
+    return render(request, "fbcharities/fbcharities.html", data)
+
+
 @login_required
 #goes to charities.html. This the page the user sees when he clicks the charity account button on users.html. name="charities"
 def charities(request):
     activeuser = request.user.activeuser
     data = {'activeuser': activeuser}
     return render(request, "charities/charities.html", data)
+
+@login_required
+#goes to charities.html. This the page the user sees when he clicks the charity account button on users.html. name="charities"
+def fbcharities(request):
+    return render(request, "fbcharities/fbcharities.html")
 
 @login_required
 #goes to new_charity.html. Where a charity can be added. name="new_charity"
@@ -91,6 +105,23 @@ def new_charity(request):
     data = {'form0': form0}
     return render(request, "charities/new_charity.html", data)
 
+
+@login_required
+#goes to new_charity.html. Where a charity can be added. name="new_charity"
+def fbnew_charity(request):
+    if request.method == "POST":
+        form0 = CharityForm(request.POST)
+        if form0.is_valid():
+            charity = form0.save(commit=False)
+            charity.user = request.user
+            charity.save()
+            return redirect("/fbcharities")
+    else:
+        form0 = CharityForm()
+    data = {'form0': form0}
+    return render(request, "fbcharities/fbnew_charity.html", data)
+
+
 @login_required
 # never used. Its there for code reference.
 def view_charity(request, charity_id):
@@ -99,6 +130,15 @@ def view_charity(request, charity_id):
     activeuser = request.user.activeuser
     data = {'charity': charity, 'activeuser': activeuser}
     return render(request, "charities/view_charity.html", data)
+
+@login_required
+# never used. Its there for code reference.
+def fbview_charity(request, charity_id):
+    charity = request.user.charity
+    data = {'charity': charity}
+    return render(request, "fbcharities/fbview_charity.html", data)
+
+
 @login_required
 # used on the charity_info page as a "edit charity" button. So the charity can make cahnges to their profile
 def edit_charity(request, charity_id):
@@ -112,12 +152,37 @@ def edit_charity(request, charity_id):
         form1 = CharityForm(instance=charity)
     data = {"charity": charity, "form1": form1}
     return render(request, "charities/edit_charity.html",data)
+
+@login_required
+# used on the charity_info page as a "edit charity" button. So the charity can make cahnges to their profile
+def fbedit_charity(request, fbcharity_id):
+    charity = Charity.objects.get(id= fbcharity_id)
+    if request.method == "POST":
+        form1 = CharityForm(request.POST, instance=charity)
+        if form1.is_valid():
+            if form1.save():
+                return redirect("fbcharities")
+    else:
+        form1 = CharityForm(instance=charity)
+    data = {"charity": charity, "form1": form1}
+    return render(request, "fbcharities/fbedit_charity.html",data)
+
+
 @login_required
 # used on the charity_info page as a "delete charity" button. So the charity can delete their profile
 def delete_charity(request, charity_id):
     charity = Charity.objects.get(id=charity_id)
     charity.delete()
     return redirect("/charities")
+
+@login_required
+# used on the charity_info page as a "delete charity" button. So the charity can delete their profile
+def fbdelete_charity(request, fbcharity_id):
+    charity = Charity.objects.get(id=fbcharity_id)
+    charity.delete()
+    return redirect("/fbcharities")
+
+
 @login_required
 # this is the charity profile page. Where they can view what there profile looks like for when others look at it
 def charity_info(request):
@@ -126,6 +191,16 @@ def charity_info(request):
     activeuser = request.user.activeuser
     data = {'charity': charity, 'activeuser': activeuser, 'giver':giver}
     return render(request, "charities/charity_info.html", data)
+
+@login_required
+# this is the charity profile page. Where they can view what there profile looks like for when others look at it
+def fbcharity_info(request):
+    charity = request.user.charity
+    giver = request.user.giver
+    data = {'charity': charity, 'giver':giver}
+    return render(request, "fbcharities/fbcharity_info.html", data)
+
+
 @login_required
 # non of the videos views have been used yet. I might use them when I start showing videos
 # in the charity, user and giver profile
@@ -187,16 +262,22 @@ def charity_view_videos(request):
 @login_required
 def charity_newsfeed(request):
     return render(request, "newsfeed/newsfeed.html")
+
+
 @login_required
 #stripe
 def payment(request):
     return render(request, "payment/register.html")
 @login_required
 # the angular page where all the videos are shown in the ng-view
+
+
 def angular(request):
-    activeuser = request.user.activeuser
-    data = {'activeuser': activeuser}
-    return render(request, "angular_videos.html", data)
+    return render(request, "angular_videos.html")
+
+def fbangular(request):
+    return render(request, "fbangular_videos.html")
+
 @login_required
 #this page is no longer used. I use it to save my auth_views redirects
 def logs(request):

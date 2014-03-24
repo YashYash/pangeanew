@@ -115,8 +115,8 @@ TASTYPIE_SWAGGER_API_MODULE = "Pangea_project.urls.v1_api"
 
 TASTYPIE_FULL_DEBUG = True
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'users'
-LOGIN_REDIRECT_URL = "users"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'fbusers'
+LOGIN_REDIRECT_URL = "fbusers"
 LOGIN_URL = 'auth_login'
 
 
