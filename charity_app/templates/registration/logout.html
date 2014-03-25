@@ -1,15 +1,72 @@
 {% extends "home.html" %}
+{% load staticfiles %}
 {% load i18n %}
 
 {% block content %}
-<h1>You have been logged out. </h1>
+    <div id="bye">
+        <center>
+            <article>
+
+                <a id="backhome" href="{% url "home" %}">
+                    <center>
+                        <img id="logocircle" src="{% static url %}images/circ.png" width="8%">
+                    </center>
+                </a>
+
+                <h1 id="byetitle">Thanks for visiting</h1>
+
+            </article>
+        </center>
+    </div>
+
+    <div id="socialout">
+        <center>
+            <div id="socialup">
+                <section id="pattern" class="pattern">
+                    <ul class="grid">
+                        <li>
+                            <div class="panel">
+                                <div class="front1 card">
+                                </div>
+                                <a href="#">
+                                    <div class="back2 card">
+                                        <div class="fb-share-button"
+                                             data-href="https://developers.facebook.com/docs/plugins/"
+                                             data-type="button_count"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="panel">
+                                <div class="front2 card">
+                                </div>
+                                <a href="#">
+                                    <div class="back2 card">
+                                        <div id="tweet"><a href="https://twitter.com/share" class="twitter-share-button"
+                                                           data-via="pangeaunity" data-size="large"
+                                                           data-hashtags="pangea">Tweet</a></div>
+                                        <script>!function (d, s, id) {
+                                            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                            if (!d.getElementById(id)) {
+                                                js = d.createElement(s);
+                                                js.id = id;
+                                                js.src = p + '://platform.twitter.com/widgets.js';
+                                                fjs.parentNode.insertBefore(js, fjs);
+                                            }
+                                        }(document, 'script', 'twitter-wjs');</script>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </section>
+            </div>
+
+    </div>
+
 {% endblock %}
 
-{% block page %}
-    <h3>
-    Thanks for visiting Pangea
-    </h3>
-<body class="grey">
-<h3><a href="{% url "home" %}">Go back to the Home Page</a></h3>
-</body>
-{% endblock %}
+
+

@@ -17,14 +17,15 @@
                     <a href="#/giver/{{ item.random_giver.id }}/"><img class="animated fadeInLeftBig1 minigiverimage"
                                                                        src="{{ item.random_giver.image }}" height="90px"
                                                                        width="90px"></a>
-                    <iframe width="80%" height="70%" src="{{ item.trusted_url }}"></iframe>
-                    <br>
+                    <center>
+                    <iframe width="70%" height="60%" src="{{ item.trusted_url }}"></iframe>
+                    </center>
 
-                    <div class="fb-like" data-href="{{ item.video_url }}" data-layout="button" data-action="like"
+                    <div ng-click="facebookLike" class="fb-like" data-href="{{ item.video_url }}" data-layout="button" data-action="like"
                          data-show-faces="true" data-share="false"></div>
 
-                    <div class="fb-share-button" data-href="{{ item.trusted_url }}" data-type="button"></div>
-                    <div class="fb-send" data-colorscheme="light"></div>
+                    <div ng-click="facebookShare" class="fb-share-button" data-href="{{ item.trusted_url }}" data-type="button"></div>
+                    <div ng-click="facebookSend" class="fb-send" data-colorscheme="light"></div>
                     <h3 class="font normal">For every 10 likes and shares ,<a class="links"
                                                                               href="#/giver/{{ item.random_giver.id }}/">{{ item.random_giver.name }}</a>,
                         will donate 10 cents to the <a class="links"
@@ -59,12 +60,13 @@
                                 height="90px" width="90px"></a>
                     </div>
                     <iframe width="70%" height="60%" src="{{ item.trusted_url }}"></iframe>
-                    <br>
 
-                    <div class="fb-share-button" data-href="{{ item.video_url }}" data-type="button"></div>
-                    <div class="fb-like" data-href="{{ item.video_url }}" data-layout="button" data-action="like"
-                         data-show-faces="true" data-share="false"></div>
-                    <div class="fb-send" data-href="{{ item.video_url }}" data-colorscheme="light"></div>
+                    <br>
+                    <div ng-click="facebookLike(item)"  class="fb-like" data-href="{{ item.video_url }}" data-layout="button" data-action="like"
+                                                   data-show-faces="true" data-share="false"></div>
+                    <div ng-click="facebookShare(item)" class="fb-share-button" data-href="{{ item.video_url }}" data-type="button"></div>
+
+                    <div ng-click="facebookSend(item)" class="fb-send" data-href="{{ item.video_url }}" data-colorscheme="light"></div>
 
                     <h3 class="font normal">For every 10 likes and shares , <a class="links"
                                                                               href="#/giver/{{ item.random_giver.id }}/">{{ item.random_giver.name }}</a> ,

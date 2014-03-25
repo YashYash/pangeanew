@@ -1,4 +1,4 @@
-function videoController($scope, $http, $routeParams, $sce) {
+function videoController($scope, $http, $routeParams, $sce, $location) {
     console.log($routeParams);
     $http.get('/api/v1/charity_full/?format=json').success(function (data) {
         $scope.items = data.append;
@@ -25,7 +25,7 @@ function videoController($scope, $http, $routeParams, $sce) {
                 console.log(response);
                 $location.path("/");
 
-            })
+            });
     };
 
     $scope.facebookShare = function (item) {
@@ -33,7 +33,7 @@ function videoController($scope, $http, $routeParams, $sce) {
             success(function (response) {
                 console.log(response);
                 $location.path("/");
-            })
+            });
     };
 
     $scope.facebookSend = function (item) {
@@ -41,7 +41,7 @@ function videoController($scope, $http, $routeParams, $sce) {
             success(function (response) {
                 console.log(response);
                 $location.path("/");
-            })
+            });
     };
 
     $scope.section = function (id) {

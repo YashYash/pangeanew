@@ -13,6 +13,15 @@
 </head>
 
 <link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1453223734911171";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
   <div class="container">
 
@@ -32,7 +41,7 @@
             {% if user.is_authenticated %}
             <li id="loggedin"><a href="{% url 'user_profile' %}">{{ user.username }}</a></li>
 
-{#            <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></li>#}
+                <a href="#" id="up" class="zoom"><div class="round"><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="200px" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div></div></a>
             {% endif %}
 
             </ul>
@@ -62,3 +71,5 @@
 
 {% block content %}
 {% endblock %}
+
+</body>

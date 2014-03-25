@@ -8,84 +8,145 @@
     <link rel="stylesheet" href="{% static "css/homepage.css" %}">
     <script type="text/javascript" src="{% static "jquery/jquery.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/grid.js" %}"></script>
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
+    <script type='text/javascript'
+            src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
     {% block moresources %}{% endblock %}
 </head>
 
-
-
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1453223734911171";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <link href='http://fonts.googleapis.com/css?family=Elsie:400,900' rel='stylesheet' type='text/css'>
 
 <div id="quemsomos" class="bgParallax" data-speed="1.5">
 
-         <article id="wide">
-             <div id="logo" class="clicks">
+    <article id="wide">
+        <div id="logo" class="clicks">
 
-                <img src="{% static url %}images/pange2.png">
-                    <div id="slogan">We help you help others</div>
-                <ul class="inpage">
+            <img src="{% static url %}images/pange2.png">
 
-                    <li><a class="frontpage" href="#">Our Work</a></li>
-                    <li><a class="frontpage" href="#">About us</a></li>
-                    <li><a class="frontpage" href="#">The Founder</a></li>
-                </ul>
+            <div id="slogan">We help you help others</div>
+            <ul class="inpage">
 
-            </div>
+                <li><a class="frontpage" href="#">Our Work</a></li>
+                <li><a class="frontpage" href="#">About us</a></li>
+                <li><a class="frontpage" href="#">The Founder</a></li>
+            </ul>
 
-         </article>
+        </div>
+
+    </article>
 </div>
 
 <div id="quemsomos1" class="bgParallax" data-speed="1.5">
-<article id="black">
-    <center>
-        <img id="logocircle" src="{% static url %}images/circ.png" width="8%">
-</center>
-		<img id="moveimage" src="{% static url %}images/scheme.png" width="60%">
+    <article id="black">
+        <center>
+            <img id="logocircle" src="{% static url %}images/circ.png" width="8%">
+        </center>
+        <img id="moveimage" src="{% static url %}images/scheme.png" width="60%">
 
-</article>
+    </article>
+</div>
+
+
+<div id="quemsomos2" class="bgParallax" data-speed="0.2">
+    <article>
+        <center>
+        <div id="socialup">
+        <section id="pattern" class="pattern">
+            <ul class="grid">
+                <li>
+                    <div class="panel">
+                        <div class="front1 card">
+                        </div>
+                        <a href="#">
+                            <div class="back2 card">
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="panel">
+                        <div class="front2 card">
+                        </div>
+                        <a href="#">
+                            <div class="back2 card">
+                                <div id="tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-via="pangeaunity" data-size="large" data-hashtags="pangea">Tweet</a></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+        </div>
+            </center>
+    </article>
+</div>
+
+
+<div id="quemsomos3" class="bgParallax" data-speed="0.2">
+    <article>
+<center>
+        <div class="panel1">
+            <div class="front card">
+            </div>
+            <a href="#">
+                <div class="back card">
+                </div>
+            </a>
+        </div>
+</center>
+    </article>
 </div>
 
 <div id="container1">
 
-	<div class="menu-trigger"></div>
+    <div class="menu-trigger"></div>
 
-        <nav id="navbar">
-            <ul>
-                <li><a href="{% url 'auth_login' %}?next=/users/">Log in  </a></li>
+    <nav id="navbar">
+        <ul>
+            <li><a href="{% url 'auth_login' %}?next=/users/">Log in </a></li>
 
-            </ul>
+        </ul>
 
-            <ul>
-                <li><a href="{% url 'registration_register' %}">  Register</a></li>
-            </ul>
-        </nav>
-
-</div>
-
-	<script>
-		window.onscroll=function(){document.getElementById('navbar').setAttribute('class', (window.pageYOffset>5?'fixednav clearfix':'clearfix'));}
-	</script>
-
-    <script>
-        (function() {
-            var $body = document.body
-            , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
-
-            if ( typeof $menu_trigger !== 'undefined' ) {
-                $menu_trigger.addEventListener('click', function() {
-                    $body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
-                });
-            }
-
-        }).call(this);
-
-    </script>
-
-
-<div id="quemsomos" class="bgParallax" data-speed="0.3">
+        <ul>
+            <li><a href="{% url 'registration_register' %}"> Register</a></li>
+        </ul>
+    </nav>
 
 </div>
+
+<script>
+    window.onscroll = function () {
+        document.getElementById('navbar').setAttribute('class', (window.pageYOffset > 5 ? 'fixednav clearfix' : 'clearfix'));
+    }
+</script>
+
+<script>
+    (function () {
+        var $body = document.body
+                , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
+
+        if (typeof $menu_trigger !== 'undefined') {
+            $menu_trigger.addEventListener('click', function () {
+                $body.className = ( $body.className == 'menu-active' ) ? '' : 'menu-active';
+            });
+        }
+
+    }).call(this);
+
+</script>
+
+
+
 
 
 

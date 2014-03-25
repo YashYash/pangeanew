@@ -1,4 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Crushed|Sail|Montez|Merienda+One|Radley|Italianno|Rancho|Damion|Leckerli+One|Uncial+Antiqua|Amarante);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Cabin|Economica|Pompiere|Allura|Patrick+Hand+SC|Sniglet|Rokkitt|Elsie|Allerta+Stencil|Pathway+Gothic+One|Ruda);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Cabin|Economica|Pompiere|Allura|Patrick+Hand+SC|Sniglet|Rokkitt|Elsie|Allerta+Stencil|Pathway+Gothic+One|Ruda|Raleway|Oxygen);
+
+
 
 /** For index.html, the landing page **/
 
@@ -8,8 +13,8 @@ font-size: 14px;}
 
 /** formata elementos que tem backgrounds parallax **/
 .bgParallax {
-font-family: 'Sail', cursive;
-	margin: 0 auto;
+font-family: 'Droid Sans', sans-serif;
+    margin: 0 auto;
 	width: 100%;
 	max-width: 1920px;/*1920px*/
 	position: relative;
@@ -25,13 +30,25 @@ font-family: 'Sail', cursive;
 #quemsomos {
   background-image:url('../images/hands.png');
     height:100%;
-font-family: 'Sail', cursive;
+font-family: 'Droid Sans', sans-serif;
 }
 
 #quemsomos1 {
 	background-image:url('../images/kids.jpg');
     height:100%;
-font-family: 'Sail', cursive;
+font-family: 'Droid Sans', sans-serif;
+}
+
+#quemsomos2 {
+	background-image:url('../images/purple.jpg');
+    height:100%;
+font-family: 'Droid Sans', sans-serif;
+}
+
+#quemsomos3 {
+	background-image:url('../images/moro-rock-sequoia-national-park-nature-hd-wallpaper-1920x1080-10795.jpg');
+    height:100%;
+font-family: 'Droid Sans', sans-serif;
 }
 
 #missao {
@@ -80,7 +97,7 @@ body {
 	font-size: 16px;
 	line-height: 1.4;
 	margin: 0;
-font-family: 'Sail', cursive;
+font-family: 'Droid Sans', sans-serif;
 }
 
 .clearfix:before,.clearfix:after {content: " "; display: table;}
@@ -104,7 +121,7 @@ font-family: 'Sail', cursive;
 #container h2 {font-size: 1.35em;}
 
 #navbar {
-	width: 70%; /* Should be same width as content container */
+	width: 80%; /* Should be same width as content container */
 	position: fixed;
 	top: 0;	left: 15%; /* Left is 100-[content width]/2). */
 	opacity: 1;
@@ -115,8 +132,8 @@ font-family: 'Sail', cursive;
 }
 
 nav ul {
-font-family: 'Sail', cursive;
-	font-size:22px;
+font-family: 'Droid Sans', sans-serif;
+    font-size:22px;
 	list-style-type: none;
 	background-color:none;
 	opacity:1;
@@ -320,7 +337,7 @@ a:hover {font-weight: bold;}
 	margin: 0;
 	padding: 0;
 	font-weight: 400;
-font-family: 'Damion', cursive;
+font-family: 'Raleway', sans-serif;
     font-size: 27px;
 }
 
@@ -380,13 +397,11 @@ font-family: 'Damion', cursive;
 .grid {
   overflow: hidden;
   padding: 0.5em 0 0 0.5em;
-  max-width: 100%;
-  position: relative;
-    right:200px;
-  margin: 10px;
+  max-width: 76em;
+  margin: 0 auto;
 }
 .grid li {
-  padding: 30px;
+  padding: 0 0.5em 0.5em 0;
 }
 
 .grid li.wide {
@@ -401,25 +416,15 @@ font-family: 'Damion', cursive;
     width: 50%;
     float: left;
   }
-    #moveimage{
-    position: relative;
-    top: 400px;
-
-    }
 }
 
 @media all and (min-width: 40em) {
   .grid li {
-    width: 50%;
+    width: 33.3333333%;
   }
   .grid li.wide {
     width: 66.666666%;
   }
-  #moveimage{
-    position: relative;
-    top: 400px;
-
-    }
 }
 @media all and (min-width: 60em) {
   .grid li {
@@ -428,6 +433,7 @@ font-family: 'Damion', cursive;
   .grid li.wide {
     width: 50%;
   }
+}
    #moveimage{
     position: relative;
     top: 400px;
@@ -479,21 +485,8 @@ font-family: 'Damion', cursive;
 
 }
 
-.panel:hover .front {
-    z-index: 1;
-    -webkit-transform: rotateX(180deg);
-    -ms-transform: rotateX(180deg);
-    -moz-transform: rotateX(180deg);
-    transform: rotateX(180deg);
-}
 
-.panel:hover .back {
-    z-index: 2;
-    -webkit-transform: rotateX(0deg);
-    -ms-transform: rotateX(0deg);
-    -moz-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-}
+
 
 #black{
     background-image: url("../images/divback.png");
@@ -516,11 +509,232 @@ font-family: 'Damion', cursive;
 
 }
 
-p{
-    width: 70%;
-}
+
 
 .lorem{
         width: 70%;
 
+}
+
+.panel {
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    position: relative;
+    /*left:150px;*/
+    /*top:70px;*/
+
+}
+
+.panel1{
+    width: 300px;
+    height: 300px;
+    margin: 0;
+    position: relative;
+}
+
+
+.card {
+    width: 100%;
+    height: 100%;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    z-index: 2;
+    background-image: url("../images/me.jpg");
+    background-size: cover;
+    border-radius: 200px;
+
+
+}
+
+.front2 {
+    z-index: 2;
+    background-image: url("../images/twitty.png");
+    background-size: cover;
+    border-radius: 200px;
+        position: relative;
+    bottom:20px;
+}
+
+.front1 {
+    z-index: 2;
+    background-image: url("../images/fb.png");
+    background-size: cover;
+    border-radius: 200px;
+}
+
+
+.back {
+    z-index: 1;
+    -webkit-transform: rotateX(-180deg);
+    -ms-transform: rotateX(-180deg);
+    -moz-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+    background-image: url("../images/backofme.png");
+        border-radius: 200px;
+
+}
+
+.back2 {
+    z-index: 1;
+    -webkit-transform: rotateX(-180deg);
+    -ms-transform: rotateX(-180deg);
+    -moz-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+    background-image: url("../images/tweetfbback.png");
+        border-radius: 200px;
+
+}
+
+.panel:hover .front {
+    z-index: 1;
+    -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+        border-radius: 200px;
+
+}
+
+.panel1:hover .front {
+    z-index: 1;
+    -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+        border-radius: 200px;
+
+}
+
+.panel:hover .front1 {
+    z-index: 1;
+    -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+        border-radius: 200px;
+
+}
+
+.panel:hover .front2 {
+    z-index: 1;
+    -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+        border-radius: 200px;
+
+}
+
+.panel:hover .back {
+    z-index: 2;
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+        border-radius: 200px;
+
+}
+
+.panel1:hover .back {
+    z-index: 2;
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+        border-radius: 200px;
+
+}
+
+.panel:hover .back2 {
+    z-index: 2;
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+        border-radius: 200px;
+
+}
+
+.panel{
+    position: relative;
+    top: 100px;
+}
+
+
+
+
+section li{
+    margin:90px;
+
+
+}
+
+#socialup{
+    position: relative;
+    bottom:100px;
+}
+
+
+#tweet{
+    position: relative;
+    top:55px;
+    left:20px;
+}
+
+.fb-share-button{
+    position: relative;
+    top:60px;
+
+}
+
+
+
+#bye{
+    background-image:url('../images/craazy.jpg');
+    background-position: top left;
+    background-attachment: fixed;
+}
+
+
+#byetitle{
+        font-family: 'Raleway', sans-serif;
+        color:white;
+        font-size: 70px;
+    position: relative;
+    top:40px;
+
+}
+
+#backhome{
+    position: relative;
+}
+
+#backhome2{
+    position: relative;
+
+}
+
+#socialout{
+    position: relative;
+    top:0px;
+    left:150px;
+}
+
+#logocircle{
+    position: relative;
+    top:30px;
 }

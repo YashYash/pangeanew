@@ -50,8 +50,8 @@ def new_user(request):
         form = ActiveUserForm(request.POST)
         if form.is_valid():
             activeuser = form.save(commit=False)
-            activeuser.user = request.user
             activeuser.save()
+            activeuser.user = request.user
             return redirect("users")
     else:
         form = ActiveUserForm()

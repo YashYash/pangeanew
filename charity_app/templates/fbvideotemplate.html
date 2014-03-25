@@ -5,7 +5,9 @@
 
 <head>
     <title>{% block title %}User test{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/vids.css" %}">
     <link rel="stylesheet" href="{% static "css/grid.css" %}">
+
         <script type="text/javascript" src="{% static "jquery/jquery.js" %}"></script>
 {#        <script type="text/javascript" src="{% static "jquery/jquery-2.1.0.js" %}"></script>#}
     {% block moresources %}{% endblock %}
@@ -22,14 +24,15 @@
             <ul>
                 {% block leftli %}
                 {% endblock %}
+
             </ul>
 
 
            <ul id="status">
            <li><a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a></li>
-            <li><a href="{% url 'user_profile' %}"><img class="profilepic" src="#" height="70px" width="70px"></a></li>
             {% if user.is_authenticated %}
-            <li id="loggedin"><a href="{% url 'user_profile' %}">{{ activeuser.name }}</a></li>
+            <li id="loggedin"><a href="{% url 'user_profile' %}">{{ user.username }}</a></li>
+            <a href="#" id="up" class="zoom"><div class="round"><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="200px" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div></div></a>
 
 {#            <li><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></li>#}
             {% endif %}
